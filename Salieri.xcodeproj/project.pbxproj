@@ -1,0 +1,607 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5BDA36372AF2F8A90042267F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA36362AF2F8A90042267F /* AppDelegate.swift */; };
+		5BDA36392AF2F8A90042267F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA36382AF2F8A90042267F /* SceneDelegate.swift */; };
+		5BDA363B2AF2F8A90042267F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA363A2AF2F8A90042267F /* ViewController.swift */; };
+		5BDA363E2AF2F8A90042267F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BDA363C2AF2F8A90042267F /* Main.storyboard */; };
+		5BDA36402AF2F8AA0042267F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BDA363F2AF2F8AA0042267F /* Assets.xcassets */; };
+		5BDA36432AF2F8AA0042267F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BDA36412AF2F8AA0042267F /* LaunchScreen.storyboard */; };
+		5BDA364E2AF2F8AA0042267F /* SalieriTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA364D2AF2F8AA0042267F /* SalieriTests.swift */; };
+		5BDA36582AF2F8AA0042267F /* SalieriUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA36572AF2F8AA0042267F /* SalieriUITests.swift */; };
+		5BDA365A2AF2F8AA0042267F /* SalieriUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA36592AF2F8AA0042267F /* SalieriUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5BDA364A2AF2F8AA0042267F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BDA362B2AF2F8A90042267F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BDA36322AF2F8A90042267F;
+			remoteInfo = Salieri;
+		};
+		5BDA36542AF2F8AA0042267F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BDA362B2AF2F8A90042267F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BDA36322AF2F8A90042267F;
+			remoteInfo = Salieri;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5BDA36332AF2F8A90042267F /* Salieri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Salieri.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BDA36362AF2F8A90042267F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5BDA36382AF2F8A90042267F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		5BDA363A2AF2F8A90042267F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5BDA363D2AF2F8A90042267F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5BDA363F2AF2F8AA0042267F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5BDA36422AF2F8AA0042267F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5BDA36442AF2F8AA0042267F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BDA36492AF2F8AA0042267F /* SalieriTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SalieriTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BDA364D2AF2F8AA0042267F /* SalieriTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalieriTests.swift; sourceTree = "<group>"; };
+		5BDA36532AF2F8AA0042267F /* SalieriUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SalieriUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BDA36572AF2F8AA0042267F /* SalieriUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalieriUITests.swift; sourceTree = "<group>"; };
+		5BDA36592AF2F8AA0042267F /* SalieriUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalieriUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5BDA36302AF2F8A90042267F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BDA36462AF2F8AA0042267F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BDA36502AF2F8AA0042267F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5BDA362A2AF2F8A90042267F = {
+			isa = PBXGroup;
+			children = (
+				5BDA36352AF2F8A90042267F /* Salieri */,
+				5BDA364C2AF2F8AA0042267F /* SalieriTests */,
+				5BDA36562AF2F8AA0042267F /* SalieriUITests */,
+				5BDA36342AF2F8A90042267F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5BDA36342AF2F8A90042267F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5BDA36332AF2F8A90042267F /* Salieri.app */,
+				5BDA36492AF2F8AA0042267F /* SalieriTests.xctest */,
+				5BDA36532AF2F8AA0042267F /* SalieriUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5BDA36352AF2F8A90042267F /* Salieri */ = {
+			isa = PBXGroup;
+			children = (
+				5BDA36362AF2F8A90042267F /* AppDelegate.swift */,
+				5BDA36382AF2F8A90042267F /* SceneDelegate.swift */,
+				5BDA363A2AF2F8A90042267F /* ViewController.swift */,
+				5BDA363C2AF2F8A90042267F /* Main.storyboard */,
+				5BDA363F2AF2F8AA0042267F /* Assets.xcassets */,
+				5BDA36412AF2F8AA0042267F /* LaunchScreen.storyboard */,
+				5BDA36442AF2F8AA0042267F /* Info.plist */,
+			);
+			path = Salieri;
+			sourceTree = "<group>";
+		};
+		5BDA364C2AF2F8AA0042267F /* SalieriTests */ = {
+			isa = PBXGroup;
+			children = (
+				5BDA364D2AF2F8AA0042267F /* SalieriTests.swift */,
+			);
+			path = SalieriTests;
+			sourceTree = "<group>";
+		};
+		5BDA36562AF2F8AA0042267F /* SalieriUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5BDA36572AF2F8AA0042267F /* SalieriUITests.swift */,
+				5BDA36592AF2F8AA0042267F /* SalieriUITestsLaunchTests.swift */,
+			);
+			path = SalieriUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5BDA36322AF2F8A90042267F /* Salieri */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BDA365D2AF2F8AA0042267F /* Build configuration list for PBXNativeTarget "Salieri" */;
+			buildPhases = (
+				5BDA362F2AF2F8A90042267F /* Sources */,
+				5BDA36302AF2F8A90042267F /* Frameworks */,
+				5BDA36312AF2F8A90042267F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Salieri;
+			productName = Salieri;
+			productReference = 5BDA36332AF2F8A90042267F /* Salieri.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5BDA36482AF2F8AA0042267F /* SalieriTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BDA36602AF2F8AA0042267F /* Build configuration list for PBXNativeTarget "SalieriTests" */;
+			buildPhases = (
+				5BDA36452AF2F8AA0042267F /* Sources */,
+				5BDA36462AF2F8AA0042267F /* Frameworks */,
+				5BDA36472AF2F8AA0042267F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5BDA364B2AF2F8AA0042267F /* PBXTargetDependency */,
+			);
+			name = SalieriTests;
+			productName = SalieriTests;
+			productReference = 5BDA36492AF2F8AA0042267F /* SalieriTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5BDA36522AF2F8AA0042267F /* SalieriUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BDA36632AF2F8AA0042267F /* Build configuration list for PBXNativeTarget "SalieriUITests" */;
+			buildPhases = (
+				5BDA364F2AF2F8AA0042267F /* Sources */,
+				5BDA36502AF2F8AA0042267F /* Frameworks */,
+				5BDA36512AF2F8AA0042267F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5BDA36552AF2F8AA0042267F /* PBXTargetDependency */,
+			);
+			name = SalieriUITests;
+			productName = SalieriUITests;
+			productReference = 5BDA36532AF2F8AA0042267F /* SalieriUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5BDA362B2AF2F8A90042267F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					5BDA36322AF2F8A90042267F = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					5BDA36482AF2F8AA0042267F = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 5BDA36322AF2F8A90042267F;
+					};
+					5BDA36522AF2F8AA0042267F = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 5BDA36322AF2F8A90042267F;
+					};
+				};
+			};
+			buildConfigurationList = 5BDA362E2AF2F8A90042267F /* Build configuration list for PBXProject "Salieri" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5BDA362A2AF2F8A90042267F;
+			productRefGroup = 5BDA36342AF2F8A90042267F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5BDA36322AF2F8A90042267F /* Salieri */,
+				5BDA36482AF2F8AA0042267F /* SalieriTests */,
+				5BDA36522AF2F8AA0042267F /* SalieriUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5BDA36312AF2F8A90042267F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BDA36432AF2F8AA0042267F /* LaunchScreen.storyboard in Resources */,
+				5BDA36402AF2F8AA0042267F /* Assets.xcassets in Resources */,
+				5BDA363E2AF2F8A90042267F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BDA36472AF2F8AA0042267F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BDA36512AF2F8AA0042267F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5BDA362F2AF2F8A90042267F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BDA363B2AF2F8A90042267F /* ViewController.swift in Sources */,
+				5BDA36372AF2F8A90042267F /* AppDelegate.swift in Sources */,
+				5BDA36392AF2F8A90042267F /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BDA36452AF2F8AA0042267F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BDA364E2AF2F8AA0042267F /* SalieriTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BDA364F2AF2F8AA0042267F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BDA365A2AF2F8AA0042267F /* SalieriUITestsLaunchTests.swift in Sources */,
+				5BDA36582AF2F8AA0042267F /* SalieriUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5BDA364B2AF2F8AA0042267F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5BDA36322AF2F8A90042267F /* Salieri */;
+			targetProxy = 5BDA364A2AF2F8AA0042267F /* PBXContainerItemProxy */;
+		};
+		5BDA36552AF2F8AA0042267F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5BDA36322AF2F8A90042267F /* Salieri */;
+			targetProxy = 5BDA36542AF2F8AA0042267F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5BDA363C2AF2F8A90042267F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5BDA363D2AF2F8A90042267F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5BDA36412AF2F8AA0042267F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5BDA36422AF2F8AA0042267F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5BDA365B2AF2F8AA0042267F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5BDA365C2AF2F8AA0042267F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5BDA365E2AF2F8AA0042267F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2Q23CJZB73;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Salieri/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tpf.fiasko.Salieri;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5BDA365F2AF2F8AA0042267F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2Q23CJZB73;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Salieri/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tpf.fiasko.Salieri;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5BDA36612AF2F8AA0042267F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2Q23CJZB73;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tpf.fiasko.SalieriTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Salieri.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Salieri";
+			};
+			name = Debug;
+		};
+		5BDA36622AF2F8AA0042267F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2Q23CJZB73;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tpf.fiasko.SalieriTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Salieri.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Salieri";
+			};
+			name = Release;
+		};
+		5BDA36642AF2F8AA0042267F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2Q23CJZB73;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tpf.fiasko.SalieriUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Salieri;
+			};
+			name = Debug;
+		};
+		5BDA36652AF2F8AA0042267F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2Q23CJZB73;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tpf.fiasko.SalieriUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Salieri;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5BDA362E2AF2F8A90042267F /* Build configuration list for PBXProject "Salieri" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BDA365B2AF2F8AA0042267F /* Debug */,
+				5BDA365C2AF2F8AA0042267F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BDA365D2AF2F8AA0042267F /* Build configuration list for PBXNativeTarget "Salieri" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BDA365E2AF2F8AA0042267F /* Debug */,
+				5BDA365F2AF2F8AA0042267F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BDA36602AF2F8AA0042267F /* Build configuration list for PBXNativeTarget "SalieriTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BDA36612AF2F8AA0042267F /* Debug */,
+				5BDA36622AF2F8AA0042267F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BDA36632AF2F8AA0042267F /* Build configuration list for PBXNativeTarget "SalieriUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BDA36642AF2F8AA0042267F /* Debug */,
+				5BDA36652AF2F8AA0042267F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5BDA362B2AF2F8A90042267F /* Project object */;
+}
