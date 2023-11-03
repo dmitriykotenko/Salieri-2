@@ -7,15 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B47B9F42AF3011200E583ED /* e-min-swelling-pad.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5B47B9F32AF2FFB200E583ED /* e-min-swelling-pad.wav */; };
+		5B47B9F52AF3011400E583ED /* c-min-bass.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5B47B9F22AF2FFA600E583ED /* c-min-bass.wav */; };
 		5BDA36372AF2F8A90042267F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA36362AF2F8A90042267F /* AppDelegate.swift */; };
-		5BDA36392AF2F8A90042267F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA36382AF2F8A90042267F /* SceneDelegate.swift */; };
 		5BDA363B2AF2F8A90042267F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA363A2AF2F8A90042267F /* ViewController.swift */; };
-		5BDA363E2AF2F8A90042267F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BDA363C2AF2F8A90042267F /* Main.storyboard */; };
 		5BDA36402AF2F8AA0042267F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BDA363F2AF2F8AA0042267F /* Assets.xcassets */; };
 		5BDA36432AF2F8AA0042267F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BDA36412AF2F8AA0042267F /* LaunchScreen.storyboard */; };
 		5BDA364E2AF2F8AA0042267F /* SalieriTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA364D2AF2F8AA0042267F /* SalieriTests.swift */; };
 		5BDA36582AF2F8AA0042267F /* SalieriUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA36572AF2F8AA0042267F /* SalieriUITests.swift */; };
 		5BDA365A2AF2F8AA0042267F /* SalieriUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA36592AF2F8AA0042267F /* SalieriUITestsLaunchTests.swift */; };
+		5BDA36682AF2F9910042267F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5BDA36672AF2F9910042267F /* SnapKit */; };
+		5BDA366D2AF2F9BD0042267F /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 5BDA366C2AF2F9BD0042267F /* RxCocoa */; };
+		5BDA366F2AF2F9BD0042267F /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 5BDA366E2AF2F9BD0042267F /* RxRelay */; };
+		5BDA36712AF2F9BD0042267F /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5BDA36702AF2F9BD0042267F /* RxSwift */; };
+		5BDA36752AF2FA950042267F /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA36742AF2FA950042267F /* Labels.swift */; };
+		5BDA36772AF2FAA30042267F /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA36762AF2FAA30042267F /* Buttons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,11 +42,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B47B9F22AF2FFA600E583ED /* c-min-bass.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "c-min-bass.wav"; sourceTree = "<group>"; };
+		5B47B9F32AF2FFB200E583ED /* e-min-swelling-pad.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "e-min-swelling-pad.wav"; sourceTree = "<group>"; };
 		5BDA36332AF2F8A90042267F /* Salieri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Salieri.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BDA36362AF2F8A90042267F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5BDA36382AF2F8A90042267F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5BDA363A2AF2F8A90042267F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5BDA363D2AF2F8A90042267F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5BDA363F2AF2F8AA0042267F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BDA36422AF2F8AA0042267F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BDA36442AF2F8AA0042267F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +55,8 @@
 		5BDA36532AF2F8AA0042267F /* SalieriUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SalieriUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BDA36572AF2F8AA0042267F /* SalieriUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalieriUITests.swift; sourceTree = "<group>"; };
 		5BDA36592AF2F8AA0042267F /* SalieriUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalieriUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5BDA36742AF2FA950042267F /* Labels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
+		5BDA36762AF2FAA30042267F /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BDA366D2AF2F9BD0042267F /* RxCocoa in Frameworks */,
+				5BDA36682AF2F9910042267F /* SnapKit in Frameworks */,
+				5BDA36712AF2F9BD0042267F /* RxSwift in Frameworks */,
+				5BDA366F2AF2F9BD0042267F /* RxRelay in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +88,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B47B9F12AF2FF9200E583ED /* Samples */ = {
+			isa = PBXGroup;
+			children = (
+				5B47B9F22AF2FFA600E583ED /* c-min-bass.wav */,
+				5B47B9F32AF2FFB200E583ED /* e-min-swelling-pad.wav */,
+			);
+			path = Samples;
+			sourceTree = "<group>";
+		};
 		5BDA362A2AF2F8A90042267F = {
 			isa = PBXGroup;
 			children = (
@@ -99,10 +120,11 @@
 		5BDA36352AF2F8A90042267F /* Salieri */ = {
 			isa = PBXGroup;
 			children = (
+				5B47B9F12AF2FF9200E583ED /* Samples */,
 				5BDA36362AF2F8A90042267F /* AppDelegate.swift */,
-				5BDA36382AF2F8A90042267F /* SceneDelegate.swift */,
 				5BDA363A2AF2F8A90042267F /* ViewController.swift */,
-				5BDA363C2AF2F8A90042267F /* Main.storyboard */,
+				5BDA36742AF2FA950042267F /* Labels.swift */,
+				5BDA36762AF2FAA30042267F /* Buttons.swift */,
 				5BDA363F2AF2F8AA0042267F /* Assets.xcassets */,
 				5BDA36412AF2F8AA0042267F /* LaunchScreen.storyboard */,
 				5BDA36442AF2F8AA0042267F /* Info.plist */,
@@ -143,6 +165,12 @@
 			dependencies = (
 			);
 			name = Salieri;
+			packageProductDependencies = (
+				5BDA36672AF2F9910042267F /* SnapKit */,
+				5BDA366C2AF2F9BD0042267F /* RxCocoa */,
+				5BDA366E2AF2F9BD0042267F /* RxRelay */,
+				5BDA36702AF2F9BD0042267F /* RxSwift */,
+			);
 			productName = Salieri;
 			productReference = 5BDA36332AF2F8A90042267F /* Salieri.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +243,10 @@
 				Base,
 			);
 			mainGroup = 5BDA362A2AF2F8A90042267F;
+			packageReferences = (
+				5BDA36662AF2F9910042267F /* XCRemoteSwiftPackageReference "SnapKit" */,
+				5BDA36692AF2F9BD0042267F /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = 5BDA36342AF2F8A90042267F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -231,9 +263,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B47B9F52AF3011400E583ED /* c-min-bass.wav in Resources */,
 				5BDA36432AF2F8AA0042267F /* LaunchScreen.storyboard in Resources */,
+				5B47B9F42AF3011200E583ED /* e-min-swelling-pad.wav in Resources */,
 				5BDA36402AF2F8AA0042267F /* Assets.xcassets in Resources */,
-				5BDA363E2AF2F8A90042267F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +293,8 @@
 			files = (
 				5BDA363B2AF2F8A90042267F /* ViewController.swift in Sources */,
 				5BDA36372AF2F8A90042267F /* AppDelegate.swift in Sources */,
-				5BDA36392AF2F8A90042267F /* SceneDelegate.swift in Sources */,
+				5BDA36752AF2FA950042267F /* Labels.swift in Sources */,
+				5BDA36772AF2FAA30042267F /* Buttons.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +331,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5BDA363C2AF2F8A90042267F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5BDA363D2AF2F8A90042267F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5BDA36412AF2F8AA0042267F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -442,7 +468,6 @@
 				INFOPLIST_FILE = Salieri/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -470,7 +495,6 @@
 				INFOPLIST_FILE = Salieri/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -602,6 +626,48 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5BDA36662AF2F9910042267F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = exactVersion;
+				version = 5.6.0;
+			};
+		};
+		5BDA36692AF2F9BD0042267F /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = exactVersion;
+				version = 6.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5BDA36672AF2F9910042267F /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BDA36662AF2F9910042267F /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		5BDA366C2AF2F9BD0042267F /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BDA36692AF2F9BD0042267F /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		5BDA366E2AF2F9BD0042267F /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BDA36692AF2F9BD0042267F /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		5BDA36702AF2F9BD0042267F /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BDA36692AF2F9BD0042267F /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5BDA362B2AF2F8A90042267F /* Project object */;
 }
