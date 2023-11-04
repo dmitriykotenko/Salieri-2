@@ -3,6 +3,7 @@
 import AVFoundation
 import Foundation
 import RxSwift
+import UIKit
 
 
 class MelodyGenerator {
@@ -14,10 +15,16 @@ class MelodyGenerator {
   var state: MelodyGeneratorState
   var channelPlayers: [AudioChannelPlayer] = []
 
+  private weak var parentViewController: UIViewController?
+  private var sharer: MelodySharer?
+  private var melodyFileName: String?
+
   private let disposeBag = DisposeBag()
 
-  init(melodyContainer: MelodyContainer) {
+  init(melodyContainer: MelodyContainer,
+       parentViewController: UIViewController?) {
     self.melodyContainer = melodyContainer
+    self.parentViewController = parentViewController
 
     state = .init(
       channels: melodyContainer.channels,
@@ -63,6 +70,15 @@ class MelodyGenerator {
     channelPlayers.forEach { $0.playerNode?.stop() }
     audioEngine.mainMixerNode.removeTap(onBus: 0)
     melodyContainer.isPlaying = false
+    share()
+  }
+
+  func share() {
+    sharer = .init(parentViewController: parentViewController)
+
+    if let melodyFileName {
+      sharer?.shareMelody(fileName: melodyFileName)
+    }
   }
 
   private func synchronizeChannelsAndStartPlaying() {
@@ -97,6 +113,8 @@ class MelodyGenerator {
         try! audioFile.write(from: buffer)
       }
     )
+
+    melodyFileName = fileName
   }
 
   func process(melodyEvent: MelodyEvent) {

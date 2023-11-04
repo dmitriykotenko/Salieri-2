@@ -110,8 +110,8 @@
             filePath = "Salieri/MelodyGenerator/MelodyGenerator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "process(channelEvent:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -289,6 +289,22 @@
             startingLineNumber = "177"
             endingLineNumber = "177"
             landmarkName = "with(channel:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "54B19148-20B8-4ED4-B55C-2D2D3F93D348"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Salieri/MelodySharer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "shareMelodyViaDocumentInteractionController(fileName:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

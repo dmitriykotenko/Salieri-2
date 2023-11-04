@@ -71,7 +71,8 @@ class MelodyGeneratorView: View {
     stopButton.isEnabled = true
 
     self.melodyGenerator = MelodyGenerator(
-      melodyContainer: melodyContainer
+      melodyContainer: melodyContainer,
+      parentViewController: containingViewController
     )
 
     Task { @MainActor in

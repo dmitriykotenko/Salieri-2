@@ -50,6 +50,8 @@
 		5BDF777A2AF6BD81001AEC59 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF77792AF6BD81001AEC59 /* Colors.swift */; };
 		5BDF777E2AF6C19D001AEC59 /* MelodyGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF777D2AF6C19D001AEC59 /* MelodyGeneratorView.swift */; };
 		5BDF77802AF6C347001AEC59 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF777F2AF6C347001AEC59 /* Button.swift */; };
+		5BDF77822AF6C6A5001AEC59 /* MelodySharer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF77812AF6C6A5001AEC59 /* MelodySharer.swift */; };
+		5BDF77842AF6C874001AEC59 /* UIResponder+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF77832AF6C874001AEC59 /* UIResponder+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +115,8 @@
 		5BDF77792AF6BD81001AEC59 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		5BDF777D2AF6C19D001AEC59 /* MelodyGeneratorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MelodyGeneratorView.swift; sourceTree = "<group>"; };
 		5BDF777F2AF6C347001AEC59 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		5BDF77812AF6C6A5001AEC59 /* MelodySharer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MelodySharer.swift; sourceTree = "<group>"; };
+		5BDF77832AF6C874001AEC59 /* UIResponder+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +191,7 @@
 				5BDF775A2AF57D55001AEC59 /* FileManager+.swift */,
 				5BDF77562AF56D1F001AEC59 /* Sequence+asyncMap.swift */,
 				5BDF77512AF566BD001AEC59 /* SalieriError.swift */,
+				5BDF77812AF6C6A5001AEC59 /* MelodySharer.swift */,
 				5BDA363A2AF2F8A90042267F /* ViewController.swift */,
 				5BDA36362AF2F8A90042267F /* AppDelegate.swift */,
 				5BDA363F2AF2F8AA0042267F /* Assets.xcassets */,
@@ -244,6 +249,7 @@
 			children = (
 				5BDF77642AF629F3001AEC59 /* UIView+.swift */,
 				5BDF77662AF63667001AEC59 /* UIControl+.swift */,
+				5BDF77832AF6C874001AEC59 /* UIResponder+.swift */,
 				5BDA36762AF2FAA30042267F /* Buttons.swift */,
 				5BDF777F2AF6C347001AEC59 /* Button.swift */,
 				5BDA36742AF2FA950042267F /* Labels.swift */,
@@ -421,6 +427,7 @@
 				5BDF77702AF6584B001AEC59 /* Comparable+.swift in Sources */,
 				5BDF77612AF623C3001AEC59 /* AudioChannelPlayer.swift in Sources */,
 				5BDF77442AF55F1B001AEC59 /* AudioSample.swift in Sources */,
+				5BDF77842AF6C874001AEC59 /* UIResponder+.swift in Sources */,
 				5BDF777E2AF6C19D001AEC59 /* MelodyGeneratorView.swift in Sources */,
 				5BDF777A2AF6BD81001AEC59 /* Colors.swift in Sources */,
 				5BDF77632AF62570001AEC59 /* AudioChannelEvent.swift in Sources */,
@@ -428,6 +435,7 @@
 				5BDA36372AF2F8A90042267F /* AppDelegate.swift in Sources */,
 				5BDF774C2AF56222001AEC59 /* AudioChannel.swift in Sources */,
 				5BDA36752AF2FA950042267F /* Labels.swift in Sources */,
+				5BDF77822AF6C6A5001AEC59 /* MelodySharer.swift in Sources */,
 				5BDF77672AF63667001AEC59 /* UIControl+.swift in Sources */,
 				5BDA36772AF2FAA30042267F /* Buttons.swift in Sources */,
 				5BDF774A2AF56052001AEC59 /* Duration.swift in Sources */,
