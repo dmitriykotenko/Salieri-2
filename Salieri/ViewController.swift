@@ -15,10 +15,44 @@ class ViewController: UIViewController {
   let playButton = UIButton.standard.with(title: "Воспроизвести реквием")
   let doneLabel = UILabel.standard.with(textColor: .systemTeal).with(text: "Реквием сочинён")
 
+  let channelView = AudioChannelView()
+
+  private var wavPlayer: AVAudioPlayer?
+  private var melodyGenerator: MelodyGenerator?
+
+  private var audioChannelPlayer: AudioChannelPlayer?
+
   private let disposeBag = DisposeBag()
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    setupLayout()
+
+    _ = channelView.with(
+      channel: .init(
+        segment: .init(
+          sample: .eMinSwellingPad,
+          loudness: 500,
+          silenceLength: 0
+        )
+      )
+    )
+
+    button.rx.tap
+      .subscribe(onNext: { [weak self] in
+        self?.setupChannelPlaying()
+//        self?.doneLabel.isHidden = false
+//        self?.playButton.isHidden = false
+      })
+      .disposed(by: disposeBag)
+
+    playButton.rx.tap
+      .subscribe(onNext: { [weak self] in self?.playRequiem2() })
+      .disposed(by: disposeBag)
+  }
+
+  private func setupLayout() {
     view.translatesAutoresizingMaskIntoConstraints = false
     view.backgroundColor = .systemOrange.withAlphaComponent(0.5)
 
@@ -52,25 +86,55 @@ class ViewController: UIViewController {
       $0.top.equalTo(doneLabel.snp.bottom).offset(16)
     }
 
-    button.rx.tap
-      .subscribe(onNext: { [weak self] in
-        self?.doneLabel.isHidden = false
-        self?.playButton.isHidden = false
-      })
-      .disposed(by: disposeBag)
-
-    playButton.rx.tap
-      .subscribe(onNext: { [weak self] in self?.playRequiem() })
-      .disposed(by: disposeBag)
+    view.addSubview(channelView)
+    channelView.snp.makeConstraints {
+      $0.centerX.equalToSuperview()
+      $0.leading.equalToSuperview().offset(16)
+      $0.top.equalTo(playButton.snp.bottom).offset(16)
+    }
   }
 
-  private func playRequiem() {
+  private func playWavFile() {
     let fileUrl = wavUrl(fileName: "e-min-swelling-pad")
 
     let player = fileUrl.flatMap { try? AVAudioPlayer(contentsOf: $0) }
     player?.play()
 
-    self.player = player
+    self.wavPlayer = player
+  }
+
+  private func playRequiem2() {
+    self.melodyGenerator = MelodyGenerator(
+      segments: [
+        .init(
+          sample: .d80811,
+          loudness: 450,
+          silenceLength: 0
+        ),
+        .init(
+          sample: .d80811,
+          loudness: 900,
+          silenceLength: 3
+        ),
+        .init(
+          sample: .eMinSwellingPad,
+          loudness: 500,
+          silenceLength: 0
+        ),
+//        .init(
+//          sample: .cMinBass,
+//          loudness: 200,
+//          silenceLength: 0
+//        ),
+      ]
+    )
+
+    Task { @MainActor in
+      await melodyGenerator?.play(
+        totalDuration: 15.seconds,
+        saveToFile: "salieri-very-first-file.wav"
+      )
+    }
   }
 
   private func createRequiem() {}
@@ -80,5 +144,26 @@ class ViewController: UIViewController {
     return filePath.map { URL(filePath: $0) }
   }
 
-  private var player: AVAudioPlayer?
+  private func setupChannelPlaying() {
+    audioChannelPlayer = .init(
+      channel: .init(
+        segment: .init(
+          sample: .eMinSwellingPad,
+          loudness: 100,
+          silenceLength: 0
+        )
+      )
+    )
+
+    Task {
+      await audioChannelPlayer?.play(totalDuration: 100.seconds)
+    }
+
+    channelView.channel
+      .compactMap { $0 }
+      .subscribe(onNext: { [weak self] in
+        self?.audioChannelPlayer?.channel = $0
+      })
+      .disposed(by: disposeBag)
+  }
 }

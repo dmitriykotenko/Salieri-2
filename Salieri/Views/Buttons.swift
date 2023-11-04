@@ -15,6 +15,13 @@ extension UIButton {
     )
   }
 
+  static var small: UIButton {
+    button(
+      font: .systemFont(ofSize: 14),
+      cornerRadius: 0
+    )
+  }
+
   static func button(font: UIFont,
                      textColor: UIColor = .white,
                      backgroundColor: UIColor = .systemBlue,
@@ -40,5 +47,15 @@ extension UIButton {
   func with(title: String) -> Self {
     setTitle(title, for: UIControl.State.normal)
     return self
+  }
+
+  func with(titleColor: UIColor,
+            forState state: UIControl.State) -> Self {
+    setTitleColor(titleColor, for: state)
+    return self
+  }
+
+  func with(selectedTitleColor: UIColor) -> Self {
+    with(titleColor: selectedTitleColor, forState: .selected)
   }
 }

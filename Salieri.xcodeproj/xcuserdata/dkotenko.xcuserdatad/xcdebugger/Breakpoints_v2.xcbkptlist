@@ -7,38 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5F0D70EF-9835-4068-829E-7989A7C7B079"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Salieri/AppDelegate.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "47F77E88-17D6-4F9A-9352-5EF2BB07BF55"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Salieri/AppDelegate.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "setupUi()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "AAC4FFBF-3942-4FCD-8B70-C72AFC9B54F2"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -46,42 +14,10 @@
             filePath = "Salieri/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "playRequiem()"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "playWavFile()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "AAC4FFBF-3942-4FCD-8B70-C72AFC9B54F2 - fafc2d496db6f57d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Salieri.ViewController.playRequiem() -&gt; ()"
-                  moduleName = "Salieri"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dkotenko/Documents/Fiasko/Yandex%20Contest%20-%20autumn%202023/iOS-semifinal/Salieri/Salieri/Salieri/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
-                  offsetFromSymbolStart = "116">
-               </Location>
-               <Location
-                  uuid = "AAC4FFBF-3942-4FCD-8B70-C72AFC9B54F2 - fafc2d496db6f57d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Salieri.ViewController.playRequiem() -&gt; ()"
-                  moduleName = "Salieri"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dkotenko/Documents/Fiasko/Yandex%20Contest%20-%20autumn%202023/iOS-semifinal/Salieri/Salieri/Salieri/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
-                  offsetFromSymbolStart = "352">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -94,13 +30,13 @@
             filePath = "Salieri/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "playRequiem()"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "playWavFile()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "B0EB11DC-E5E2-4A90-A268-61E88DF8F4D9 - fafc2d496db6f59e"
+                  uuid = "B0EB11DC-E5E2-4A90-A268-61E88DF8F4D9 - fafc2d496db6f5bf"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -110,26 +46,121 @@
                   urlString = "file:///Users/dkotenko/Documents/Fiasko/Yandex%20Contest%20-%20autumn%202023/iOS-semifinal/Salieri/Salieri/Salieri/ViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "71"
-                  endingLineNumber = "71"
-                  offsetFromSymbolStart = "528">
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "164">
                </Location>
                <Location
-                  uuid = "B0EB11DC-E5E2-4A90-A268-61E88DF8F4D9 - b3bfa264aa50a29a"
+                  uuid = "B0EB11DC-E5E2-4A90-A268-61E88DF8F4D9 - f138435b120948ba"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Foundation.URL) -&gt; Swift.Optional&lt;__C.AVAudioPlayer&gt; in Salieri.ViewController.playRequiem() -&gt; ()"
+                  symbolName = "closure #1 (Foundation.URL) -&gt; Swift.Optional&lt;__C.AVAudioPlayer&gt; in Salieri.ViewController.playRequiem() -&gt; ()"
                   moduleName = "Salieri"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dkotenko/Documents/Fiasko/Yandex%20Contest%20-%20autumn%202023/iOS-semifinal/Salieri/Salieri/Salieri/ViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "71"
-                  endingLineNumber = "71"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
                   offsetFromSymbolStart = "104">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BFFD677A-6432-4A7F-A753-6B6A33D2055D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Salieri/Entities/AudioChannel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "asAudioNode(audioEngine:totalDuraton:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BFFD677A-6432-4A7F-A753-6B6A33D2055D - 9e1d3aeaa9017084"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Salieri.AudioChannel.asAudioNode(totalDuraton: Salieri.Duration) async -&gt; __C.AVAudioPlayerNode"
+                  moduleName = "Salieri"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dkotenko/Documents/Fiasko/Yandex%20Contest%20-%20autumn%202023/iOS-semifinal/Salieri/Salieri/Salieri/Entities/AudioChannel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "960">
+               </Location>
+               <Location
+                  uuid = "BFFD677A-6432-4A7F-A753-6B6A33D2055D - 25e9a4828f3d7ad7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for Salieri.AudioChannel.asAudioNode(totalDuraton: Salieri.Duration) async -&gt; __C.AVAudioPlayerNode"
+                  moduleName = "Salieri"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dkotenko/Documents/Fiasko/Yandex%20Contest%20-%20autumn%202023/iOS-semifinal/Salieri/Salieri/Salieri/Entities/AudioChannel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "BFFD677A-6432-4A7F-A753-6B6A33D2055D - 29c434da3f86b386"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Salieri.AudioChannel.asAudioNode(totalDuraton: Salieri.Duration) async -&gt; __C.AVAudioPlayerNode"
+                  moduleName = "Salieri"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dkotenko/Documents/Fiasko/Yandex%20Contest%20-%20autumn%202023/iOS-semifinal/Salieri/Salieri/Salieri/Entities/AudioChannel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "96">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9714CF61-3E06-4C0F-9680-FDF6EF285864"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Salieri/Entities/AudioChannel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "asAudioNode(audioEngine:totalDuraton:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C23497E3-E9CD-4D90-9FA4-0FF69B34D0E1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Salieri/Entities/AudioChannel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
+            landmarkName = "duration"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

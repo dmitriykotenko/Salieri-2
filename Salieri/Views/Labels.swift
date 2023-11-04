@@ -12,6 +12,10 @@ extension UILabel {
     label(font: .systemFont(ofSize: 24))
   }
 
+  static var small: UILabel {
+    label(font: .systemFont(ofSize: 16))
+  }
+
   static func label(font: UIFont,
                     textColor: UIColor = .black,
                     textAlignment: NSTextAlignment = .left,
@@ -32,11 +36,16 @@ extension UILabel {
       label.lineBreakMode = .byTruncatingTail
     }
 
-    return label
+    return label.preparedForAutoLayout()
   }
 
   func with(text: String?) -> Self {
     self.text = text
+    return self
+  }
+
+  func with(textAlignment: NSTextAlignment) -> Self {
+    self.textAlignment = textAlignment
     return self
   }
 
