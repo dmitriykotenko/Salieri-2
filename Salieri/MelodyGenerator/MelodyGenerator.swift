@@ -10,28 +10,44 @@ class MelodyGenerator {
   let audioSession = AVAudioSession.sharedInstance()
   let audioEngine = AVAudioEngine()
 
+  var melodyContainer: MelodyContainer
   var state: MelodyGeneratorState
+  var channelPlayers: [AudioChannelPlayer] = []
 
   private let disposeBag = DisposeBag()
 
-  init(segments: [AudioSegment]) {
+  init(melodyContainer: MelodyContainer) {
+    self.melodyContainer = melodyContainer
+
     state = .init(
-      channels: segments.map { AudioChannel(segment: $0) }
+      channels: melodyContainer.channels,
+      isPlayingMelody: true,
+      baseTime: .zero
     )
+
+    melodyContainer.channelEvents
+      .subscribe(onNext: { [weak self] in self?.process(channelEvent: $0) })
+      .disposed(by: disposeBag)
 
     setupAudioEngine()
     listenForAudioRouteChanges()
   }
 
-  var playerNodes: [AVAudioPlayerNode] = []
 
   func play(totalDuration: Duration,
             saveToFile fileName: String? = nil) async {
-    self.playerNodes = await state.channels.asyncMap {
-      await $0.asAudioNode(
+    melodyContainer.isPlaying = true
+
+    self.channelPlayers = state.channels.map {
+      AudioChannelPlayer(
+        audioSession: audioSession,
         audioEngine: audioEngine,
-        totalDuraton: totalDuration
+        channel: $0
       )
+    }
+
+    _ = await channelPlayers.asyncMap {
+      await $0.prepareToPlay(totalDuration: totalDuration)
     }
 
     audioEngine.prepare()
@@ -40,16 +56,17 @@ class MelodyGenerator {
 
     fileName.map(setupFileSaving)
 
-    synchronizeChannelsAndStartPlaying()
+    channelPlayers.forEach { $0.play(totalDuration: totalDuration) }
+  }
 
-    DispatchQueue.main.asyncAfter(deadline: .now() + totalDuration.asTimeInterval + 1) { [weak self] in
-      self?.playerNodes.forEach { $0.stop() }
-      self?.audioEngine.mainMixerNode.removeTap(onBus: 0)
-    }
+  func stop() {
+    channelPlayers.forEach { $0.playerNode?.stop() }
+    audioEngine.mainMixerNode.removeTap(onBus: 0)
+    melodyContainer.isPlaying = false
   }
 
   private func synchronizeChannelsAndStartPlaying() {
-    playerNodes.forEach { $0.prepare(withFrameCount: 8192) }
+    channelPlayers.forEach { $0.playerNode?.prepare(withFrameCount: 8192) }
 
     let hostTimeNow = mach_absolute_time()
     let hostTimeFuture = hostTimeNow + AVAudioTime.hostTime(forSeconds: 0.25);
@@ -57,7 +74,7 @@ class MelodyGenerator {
     // Небольшая задержка, чтобы все каналы начали играть строго одновременно.
     let startTime = AVAudioTime(hostTime: hostTimeFuture)
 
-    playerNodes.forEach { $0.play(at: startTime) }
+    channelPlayers.forEach { $0.playerNode?.play(at: startTime) }
   }
 
   private func setupFileSaving(fileName: String) {
@@ -80,6 +97,34 @@ class MelodyGenerator {
         try! audioFile.write(from: buffer)
       }
     )
+  }
+
+  func process(melodyEvent: MelodyEvent) {
+    if state.isPlayingMelody {
+      switch melodyEvent {
+      case .channelAdded(let newChannel):
+        state.channels += [newChannel]
+      case .channelDeleted(let id):
+        state.channels = state.channels.filter { $0.id != id }
+      case .channelChange(let channelEvent):
+        state.channels = state.channels.map {
+          $0.id == channelEvent.initialChannel.id ? channelEvent.apply(to: $0) : $0
+        }
+      }
+    } else {
+      switch melodyEvent {
+      case .channelAdded, .channelDeleted:
+        break
+      case .channelChange(let channelEvent):
+        process(channelEvent: channelEvent)
+      }
+    }
+  }
+
+  private func process(channelEvent: AudioChannelEvent) {
+    let channelIndex = state.channels.firstIndex { $0.id == channelEvent.initialChannel.id }
+    let channelPlayer = channelIndex.map { channelPlayers[$0] }
+    channelPlayer?.process(audioChannelEvent: channelEvent)
   }
 
   private func setupAudioEngine() {

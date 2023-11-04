@@ -7,48 +7,36 @@ import RxSwift
 
 class AudioChannelPlayer {
 
-  let audioSession = AVAudioSession.sharedInstance()
-  let audioEngine = AVAudioEngine()
+  let audioSession: AVAudioSession
+  let audioEngine: AVAudioEngine
 
-  var channel: AudioChannel {
-    didSet {
-      channelChange(old: oldValue, new: channel)
-    }
-  }
+  private(set) var channel: AudioChannel
+  private(set) var playerNode: AVAudioPlayerNode?
 
   private let disposeBag = DisposeBag()
 
-  init(channel: AudioChannel) {
+  init(audioSession: AVAudioSession = .sharedInstance(),
+       audioEngine: AVAudioEngine = .init(),
+       channel: AudioChannel) {
+    self.audioSession = audioSession
+    self.audioEngine = audioEngine
     self.channel = channel
 
     setupAudioEngine()
     listenForAudioRouteChanges()
   }
 
-  var playerNode: AVAudioPlayerNode?
-
-  func play(totalDuration: Duration,
-            saveToFile fileName: String? = nil) async {
+  func prepareToPlay(totalDuration: Duration) async {
     self.playerNode = await channel.asAudioNode(
       audioEngine: audioEngine,
       totalDuraton: totalDuration
     )
-
-    audioEngine.prepare()
-
-    try! audioEngine.start()
-
-    fileName.map(setupFileSaving)
-
-    synchronizeChannelsAndStartPlaying()
-
-//    DispatchQueue.main.asyncAfter(deadline: .now() + totalDuration.asTimeInterval + 1) { [weak self] in
-//      self?.playerNode?.stop()
-//      self?.audioEngine.mainMixerNode.removeTap(onBus: 0)
-//    }
   }
 
-  private func synchronizeChannelsAndStartPlaying() {
+  func play(totalDuration: Duration,
+            saveToFile fileName: String? = nil) {
+    fileName.map(setupFileSaving)
+
     playerNode?.prepare(withFrameCount: 8192)
 
     let hostTimeNow = mach_absolute_time()
@@ -105,39 +93,34 @@ class AudioChannelPlayer {
     setupAudioEngine()
   }
 
-  private func channelChange(old: AudioChannel,
-                             new: AudioChannel) {
-    if new.isMuted != old.isMuted {
-      onAudioChannelEvent(.isMuted(new.isMuted))
-    } else if new.isPaused != old.isPaused {
-      onAudioChannelEvent(.isPaused(new.isPaused))
-    } else if new.segment.sample != old.segment.sample {
-      onAudioChannelEvent(.sampleChanged(new.segment.sample))
-    } else if new.segment.loudness != old.segment.loudness {
-      onAudioChannelEvent(.loudnessChanged(new.segment.loudness))
-    } else if new.segment.silenceLength != old.segment.silenceLength {
-      onAudioChannelEvent(.silenceLengthChanged(new.segment.silenceLength))
+  func process(audioChannelEvent: AudioChannelEvent) {
+    switch audioChannelEvent {
+    case .isMuted, .loudnessChanged:
+      channel = audioChannelEvent.apply(to: channel)
+      updateVolume()
+    case .isPaused(_, let isPaused):
+      channel = audioChannelEvent.apply(to: channel)
+      isPaused ? playerNode?.pause() : playerNode?.play()
+    case .sampleChanged:
+      channel = audioChannelEvent.apply(to: channel)
+      rescheduleSegments()
+    case .silenceLengthChanged:
+      processSilenceLengthChange(event: audioChannelEvent)
     }
   }
 
-  private func onAudioChannelEvent(_ event: AudioChannelEvent) {
+  private func processSilenceLengthChange(event: AudioChannelEvent) {
+    let lastRenderedMoment = (playerNode?.lastRenderedMoment ?? .zero) % channel.segment.period
+    let isSilenceNow = channel.segment.shouldBeSilent(at: lastRenderedMoment)
+
     channel = event.apply(to: channel)
 
-    switch event {
-    case .isMuted(let isMuted):
-      updateVolume()
-    case .isPaused(let isPaused):
-      isPaused ? playerNode?.pause() : playerNode?.play()
-    case .sampleChanged(let newSample):
-      rescheduleSegments()
-    case .loudnessChanged(let newLoudness):
-      updateVolume()
-    case .silenceLengthChanged(let newSilenceLength):
-      rescheduleSegments()
-    }
+    rescheduleSegments(
+      offset: isSilenceNow ? .zero : lastRenderedMoment.negated
+    )
   }
 
-  private func rescheduleSegments() {
+  private func rescheduleSegments(offset: Duration = .zero) {
     guard let playerNode else { return }
 
     playerNode.stop()
@@ -146,7 +129,8 @@ class AudioChannelPlayer {
       _ = await channel.reschedule(
         audioEngine: audioEngine,
         audioNode: playerNode,
-        totalDuraton: 600.seconds
+        totalDuraton: 600.seconds,
+        offset: offset
       )
 
       playerNode.play()
@@ -154,6 +138,16 @@ class AudioChannelPlayer {
   }
 
   private func updateVolume() {
-    playerNode?.volume = channel.isMuted ? 0.1 : Float(channel.segment.loudness) / 100
+    playerNode?.volume = channel.isMuted ? 0.3 : Float(channel.segment.loudness) / 100
+  }
+}
+
+
+extension AVAudioPlayerNode {
+
+  var lastRenderedMoment: Duration? {
+    let audioTime = lastRenderTime.flatMap { playerTime(forNodeTime: $0) }
+
+    return audioTime?.asDuration
   }
 }

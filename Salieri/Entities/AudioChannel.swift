@@ -6,6 +6,7 @@ import Foundation
 
 struct AudioChannel: Equatable, Hashable, Codable, Buildable {
 
+  let id: UUID
   var segment: AudioSegment
 
   var isMuted: Bool
@@ -13,11 +14,13 @@ struct AudioChannel: Equatable, Hashable, Codable, Buildable {
   var baseTime: Duration
   var offset: Duration
 
-  init(segment: AudioSegment,
+  init(id: UUID = UUID(),
+       segment: AudioSegment,
        isMuted: Bool = false,
        isPaused: Bool = false,
        baseTime: Duration = .zero,
        offset: Duration = .zero) {
+    self.id = id
     self.segment = segment
     self.isMuted = isMuted
     self.isPaused = isPaused
@@ -34,18 +37,14 @@ struct AudioChannel: Equatable, Hashable, Codable, Buildable {
     let node = AVAudioPlayerNode()
     node.volume = Float(segment.loudness) / 100.0
 
-    let eq = AVAudioUnitEQ()
-    let mixer = AVAudioMixerNode()
-
     audioEngine.attach(node)
     audioEngine.connect(node, to: audioEngine.mainMixerNode, format: nil)
 
     var startDuration: Duration = .zero
 
-    while startDuration + segment.period <= totalDuraton {
-//      await node.scheduleFile(audioFile, offset: startDuration)
+    while startDuration <= totalDuraton {
+      print("schedule-file---\(startDuration.milliseconds)")
       node.scheduleFile(audioFile, offset: startDuration, completionHandler: nil)
-//      node.scheduleFile(audioFile, at: nil, completionHandler: nil)
       startDuration = startDuration + segment.period
     }
 
@@ -54,19 +53,29 @@ struct AudioChannel: Equatable, Hashable, Codable, Buildable {
 
   func reschedule(audioEngine: AVAudioEngine,
                   audioNode: AVAudioPlayerNode,
-                  totalDuraton: Duration) async -> AVAudioPlayerNode {
+                  totalDuraton: Duration,
+                  offset: Duration = .zero) async -> AVAudioPlayerNode {
     let fileUrl = URL.from(resourceFileName: segment.sample.fileName)!
 
     let audioFile = try! AVAudioFile(forReading: fileUrl)
 
     audioNode.volume = Float(segment.loudness) / 100.0
 
-    var startDuration: Duration = .zero
+    var startDuration: Duration = offset
 
-    while startDuration + segment.period <= totalDuraton {
-      //      await node.scheduleFile(audioFile, offset: startDuration)
-      audioNode.scheduleFile(audioFile, offset: startDuration, completionHandler: nil)
-      //      node.scheduleFile(audioFile, at: nil, completionHandler: nil)
+    while startDuration <= totalDuraton {
+      if startDuration < .zero && startDuration + audioFile.duration > .zero {
+        audioNode.scheduleFile(
+          audioFile,
+          fileStart: startDuration.negated,
+          fileEnd: audioFile.duration,
+          offset: .zero,
+          completionHandler: nil
+        )
+      } else {
+        audioNode.scheduleFile(audioFile, offset: startDuration, completionHandler: nil)
+      }
+
       startDuration = startDuration + segment.period
     }
 
@@ -131,9 +140,9 @@ extension AVAudioPlayerNode {
     )
   }
 
-  func scheduleFile(_ file: AVAudioFile,
-                    offset: Duration,
-                    completionHandler: AVAudioNodeCompletionHandler? = nil) {
+  func scheduleFileV1(_ file: AVAudioFile,
+                      offset: Duration,
+                      completionHandler: AVAudioNodeCompletionHandler? = nil) {
     //    await scheduleFile(file, at: nil)
     let sampleRate = file.processingFormat.sampleRate
 
@@ -148,6 +157,33 @@ extension AVAudioPlayerNode {
       completionHandler: completionHandler
     )
   }
+
+  func scheduleFile(_ file: AVAudioFile,
+                    fileStart: Duration = .zero,
+                    fileEnd: Duration? = nil,
+                    offset: Duration,
+                    completionHandler: AVAudioNodeCompletionHandler? = nil) {
+    //    await scheduleFile(file, at: nil)
+    let sampleRate = file.processingFormat.sampleRate
+    let startingFrame = AVAudioFramePosition(fileStart.asTimeInterval * sampleRate)
+
+    let frameCount = AVAudioFrameCount(
+      ((fileEnd ?? file.duration) - fileStart).asTimeInterval * sampleRate
+    ).clamped(
+      inside: 0...AVAudioFrameCount(file.length)
+    )
+
+    scheduleSegment(
+      file,
+      startingFrame: startingFrame,
+      frameCount: frameCount,
+      at: AVAudioTime(
+        sampleTime: AVAudioFramePosition(offset.asTimeInterval * sampleRate),
+        atRate: sampleRate
+      ),
+      completionHandler: completionHandler
+    )
+  }
 }
 
 
@@ -155,5 +191,17 @@ extension AVAudioFile {
 
   var duration: Duration {
     Int(Double(length) * 1000 / processingFormat.sampleRate).milliseconds
+  }
+}
+
+
+extension AVAudioTime {
+
+  var asTimeInterval: TimeInterval {
+    Double(sampleTime) / sampleRate
+  }
+
+  var asDuration: Duration {
+    Int(asTimeInterval * 1000).milliseconds
   }
 }

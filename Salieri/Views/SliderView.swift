@@ -107,11 +107,3 @@ class SliderView: View {
     return self
   }
 }
-
-
-private extension Comparable {
-
-  func clamped(inside bounds: ClosedRange<Self>) -> Self {
-    min(bounds.upperBound, max(bounds.lowerBound, self))
-  }
-}

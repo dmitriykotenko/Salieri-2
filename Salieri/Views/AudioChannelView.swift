@@ -10,20 +10,17 @@ import AVFoundation
 
 class AudioChannelView: View {
 
-  var channel = BehaviorSubject<AudioChannel?>(value: nil)
+  var channelEvent = PublishSubject<AudioChannelEvent>()
 
-  let titleLabel = UILabel.small
+  private(set) var channel: AudioChannel
+
+  private(set) lazy var deleteChannel =
+    deleteButton.rx.tap.compactMap { [weak self] in self?.channel }
 
   let buttonsContainer = View()
   let slidersContainer = View()
 
-  let firstSampleButton = UIButton.small
-    .with(title: "Сэмпл №1")
-    .with(selectedTitleColor: .red)
-
-  let secondSampleButton = UIButton.small
-    .with(title: "Сэмпл №2")
-    .with(selectedTitleColor: .red)
+  let titleLabel = UILabel.small
 
   let pauseButton = UIButton.small
     .with(title: "Пауза")
@@ -33,24 +30,25 @@ class AudioChannelView: View {
     .with(title: "Заглушить")
     .with(selectedTitleColor: .red)
 
-  let loudnessSlider = SliderView(title: "Громкость", bounds: 0...5)
-  let silenceLengthSlider = SliderView(title: "Скорость", bounds: 0...5)
+  let deleteButton = UIButton.small
+    .with(backgroundColor: .systemRed)
+    .with(title: "Удалить")
+    .with(selectedTitleColor: .red)
+
+  let loudnessSlider = SliderView(title: "Громкость", bounds: 0...10)
+  let silenceLengthSlider = SliderView(title: "Скорость", bounds: 0...1)
 
   private let disposeBag = DisposeBag()
 
   required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
-  override init() {
+  init(channel: AudioChannel) {
+    self.channel = channel
+
     super.init()
 
     setupLayout()
 
-    channel
-      .subscribe(onNext: { [weak self] _ in self?.channelUpdated() })
-      .disposed(by: disposeBag)
-
-    onTap(of: firstSampleButton) { $0.firstSampleButtonTapped() }
-    onTap(of: secondSampleButton) { $0.secondSampleButtonTapped() }
     onTap(of: pauseButton) { $0.pauseButtonTapped() }
     onTap(of: muteButton) { $0.muteButtonTapped() }
 
@@ -58,7 +56,7 @@ class AudioChannelView: View {
   }
 
   private func setupLayout() {
-    backgroundColor = .systemOrange.withAlphaComponent(0.5)
+    backgroundColor = .systemTeal
 
     addSubview(buttonsContainer)
     buttonsContainer.snp.makeConstraints {
@@ -79,32 +77,25 @@ class AudioChannelView: View {
   private func setupButtonsLayout() {
     buttonsContainer.addSubview(titleLabel)
     titleLabel.snp.makeConstraints {
-      $0.top.bottom.equalToSuperview()
-      $0.leading.equalToSuperview()
-    }
-
-    buttonsContainer.addSubview(firstSampleButton)
-    firstSampleButton.snp.makeConstraints {
-      $0.top.bottom.equalToSuperview()
-      $0.leading.equalTo(titleLabel.snp.trailing).offset(16)
-    }
-
-    buttonsContainer.addSubview(secondSampleButton)
-    secondSampleButton.snp.makeConstraints {
-      $0.top.bottom.equalToSuperview()
-      $0.leading.equalTo(firstSampleButton.snp.trailing).offset(16)
+      $0.top.bottom.leading.equalToSuperview()
     }
 
     buttonsContainer.addSubview(pauseButton)
     pauseButton.snp.makeConstraints {
       $0.top.bottom.equalToSuperview()
-      $0.leading.equalTo(secondSampleButton.snp.trailing).offset(16)
+      $0.leading.equalTo(titleLabel.snp.trailing).offset(16)
     }
 
     buttonsContainer.addSubview(muteButton)
     muteButton.snp.makeConstraints {
       $0.top.bottom.equalToSuperview()
       $0.leading.equalTo(pauseButton.snp.trailing).offset(16)
+    }
+
+    buttonsContainer.addSubview(deleteButton)
+    deleteButton.snp.makeConstraints {
+      $0.top.bottom.equalToSuperview()
+      $0.leading.equalTo(muteButton.snp.trailing).offset(16)
       $0.trailing.equalToSuperview()
     }
   }
@@ -124,41 +115,25 @@ class AudioChannelView: View {
   }
 
   private func setupSliders() {
+    updateSliders()
+
     silenceLengthSlider.value
       .compactMap { $0 }
       .subscribe(onNext: { [weak self] newSilenceLength in
-        self?.modifyChannel {
-          $0.with(\.segment.silenceLength, CGFloat(newSilenceLength))
-        }
+        self?.silenceLengthSliderValueChanged(newValue: newSilenceLength)
       })
       .disposed(by: disposeBag)
 
     loudnessSlider.value
       .compactMap { $0 }
       .subscribe(onNext: { [weak self] newLoudness in
-        self?.modifyChannel {
-          $0.with(\.segment.loudness, Int(newLoudness * 100))
-        }
+        self?.loudnessSliderValueChanged(newValue: newLoudness)
       })
       .disposed(by: disposeBag)
   }
 
   private func channelUpdated() {
-    guard let channel = try? self.channel.value() else { return }
-
-    let silenceLengthFormatter = NumberFormatter()
-    silenceLengthFormatter.maximumFractionDigits = 2
-
-    titleLabel.text = silenceLengthFormatter.string(
-      from: channel.segment.silenceLength as NSNumber
-    )
-
-    firstSampleButton.isSelected =
-      (channel.segment.sample.name == AudioSample.cMinBass.name)
-
-    secondSampleButton.isSelected =
-      (channel.segment.sample.name == AudioSample.eMinSwellingPad.name)
-
+    titleLabel.text = channel.segment.sample.name
     pauseButton.isSelected = channel.isPaused
     muteButton.isSelected = channel.isMuted
   }
@@ -170,38 +145,43 @@ class AudioChannelView: View {
       .disposed(by: disposeBag)
   }
 
-  private func firstSampleButtonTapped() {
-    guard !firstSampleButton.isSelected else { return }
-
-    modifyChannel {
-      $0.with(\.segment.sample, .cMinBass)
-    }
-  }
-
-  private func secondSampleButtonTapped() {
-    guard !secondSampleButton.isSelected else { return }
-
-    modifyChannel {
-      $0.with(\.segment.sample, .eMinSwellingPad)
-    }
-  }
-
   private func pauseButtonTapped() {
-    modifyChannel { $0.with(\.isPaused, { !$0 }) }
+    emitChannelEvent(.isPaused(channel: channel, isPaused: !channel.isPaused))
   }
 
   private func muteButtonTapped() {
-    modifyChannel { $0.with(\.isMuted, { !$0 }) }
+    emitChannelEvent(.isMuted(channel: channel, isMuted: !channel.isMuted))
   }
 
-  private func modifyChannel(_ transform: (AudioChannel) -> AudioChannel) {
-    self.channel.onNext(
-      (try? self.channel.value()).map(transform)
-    )
+  private func silenceLengthSliderValueChanged(newValue: Float) {
+    emitChannelEvent(.silenceLengthChanged(
+      channel: channel,
+      newSilenceLength: CGFloat(newValue)
+    ))
+  }
+
+  private func loudnessSliderValueChanged(newValue: Float) {
+    emitChannelEvent(.loudnessChanged(
+      channel: channel,
+      newLoudness: Int(newValue * 100)
+    ))
+  }
+
+  private func emitChannelEvent(_ event: AudioChannelEvent) {
+    channelEvent.onNext(event)
+    channel = event.apply(to: channel)
+    channelUpdated()
   }
 
   func with(channel: AudioChannel) -> Self {
-    self.channel.onNext(channel)
+    self.channel = channel
+    channelUpdated()
+    updateSliders()
     return self
+  }
+
+  private func updateSliders() {
+    _ = loudnessSlider.with(value: Float(channel.segment.loudness) / 100)
+    _ = silenceLengthSlider.with(value: Float(channel.segment.silenceLength))
   }
 }

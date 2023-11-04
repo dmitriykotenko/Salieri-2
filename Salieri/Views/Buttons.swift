@@ -27,7 +27,7 @@ extension UIButton {
                      backgroundColor: UIColor = .systemBlue,
                      cornerRadius: CGFloat = 0,
                      height: CGFloat? = 44) -> UIButton {
-    let button = UIButton()
+    let button = Button()
 
     button.translatesAutoresizingMaskIntoConstraints = false
 
@@ -57,5 +57,10 @@ extension UIButton {
 
   func with(selectedTitleColor: UIColor) -> Self {
     with(titleColor: selectedTitleColor, forState: .selected)
+  }
+
+  func with(backgroundColor: UIColor) -> Self {
+    self.backgroundColor = backgroundColor
+    return self
   }
 }
