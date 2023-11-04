@@ -14,6 +14,7 @@ class MelodyGenerator {
   var melodyContainer: MelodyContainer
   var state: MelodyGeneratorState
   var channelPlayers: [AudioChannelPlayer] = []
+  var micPlayer: MicPlayer?
 
   private weak var parentViewController: UIViewController?
   private var sharer: MelodySharer?
@@ -36,6 +37,10 @@ class MelodyGenerator {
       .subscribe(onNext: { [weak self] in self?.process(channelEvent: $0) })
       .disposed(by: disposeBag)
 
+    melodyContainer.micEvents
+      .subscribe(onNext: { [weak self] in self?.updateMicState(isMuted: $0) })
+      .disposed(by: disposeBag)
+
     setupAudioEngine()
     listenForAudioRouteChanges()
   }
@@ -45,6 +50,11 @@ class MelodyGenerator {
             saveToFile fileName: String? = nil) async {
     melodyContainer.isPlaying = true
 
+    self.micPlayer = MicPlayer(
+      audioSession: audioSession,
+      audioEngine: audioEngine
+    )
+
     self.channelPlayers = state.channels.map {
       AudioChannelPlayer(
         audioSession: audioSession,
@@ -52,6 +62,9 @@ class MelodyGenerator {
         channel: $0
       )
     }
+
+    micPlayer?.prepareToPlay()
+    micPlayer?.setIsMuted(melodyContainer.isMicMuted)
 
     _ = await channelPlayers.asyncMap {
       await $0.prepareToPlay(totalDuration: totalDuration)
@@ -137,6 +150,11 @@ class MelodyGenerator {
         process(channelEvent: channelEvent)
       }
     }
+  }
+
+  func updateMicState(isMuted: Bool) {
+    state.isMicMuted = isMuted
+    micPlayer?.setIsMuted(isMuted)
   }
 
   private func process(channelEvent: AudioChannelEvent) {

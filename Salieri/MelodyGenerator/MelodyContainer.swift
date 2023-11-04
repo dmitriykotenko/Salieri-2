@@ -10,7 +10,12 @@ class MelodyContainer {
   var channels: [AudioChannel]
   var isPlaying: Bool = false
 
+  var isMicMuted: Bool = true {
+    didSet { micEvents.onNext(isMicMuted) }
+  }
+
   var channelEvents = PublishSubject<AudioChannelEvent>()
+  var micEvents = PublishSubject<Bool>()
 
   init(channels: [AudioChannel] = []) {
     self.channels = channels

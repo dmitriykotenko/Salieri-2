@@ -52,6 +52,7 @@
 		5BDF77802AF6C347001AEC59 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF777F2AF6C347001AEC59 /* Button.swift */; };
 		5BDF77822AF6C6A5001AEC59 /* MelodySharer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF77812AF6C6A5001AEC59 /* MelodySharer.swift */; };
 		5BDF77842AF6C874001AEC59 /* UIResponder+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF77832AF6C874001AEC59 /* UIResponder+.swift */; };
+		5BDF77862AF6CB2D001AEC59 /* MicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF77852AF6CB2D001AEC59 /* MicPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		5BDF777F2AF6C347001AEC59 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		5BDF77812AF6C6A5001AEC59 /* MelodySharer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MelodySharer.swift; sourceTree = "<group>"; };
 		5BDF77832AF6C874001AEC59 /* UIResponder+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+.swift"; sourceTree = "<group>"; };
+		5BDF77852AF6CB2D001AEC59 /* MicPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				5BDF77602AF623C3001AEC59 /* AudioChannelPlayer.swift */,
+				5BDF77852AF6CB2D001AEC59 /* MicPlayer.swift */,
 				5BDF77622AF62570001AEC59 /* AudioChannelEvent.swift */,
 				5BDF776D2AF64B36001AEC59 /* MelodyEvent.swift */,
 				5BDF77752AF69766001AEC59 /* MelodyContainer.swift */,
@@ -436,6 +439,7 @@
 				5BDF774C2AF56222001AEC59 /* AudioChannel.swift in Sources */,
 				5BDA36752AF2FA950042267F /* Labels.swift in Sources */,
 				5BDF77822AF6C6A5001AEC59 /* MelodySharer.swift in Sources */,
+				5BDF77862AF6CB2D001AEC59 /* MicPlayer.swift in Sources */,
 				5BDF77672AF63667001AEC59 /* UIControl+.swift in Sources */,
 				5BDA36772AF2FAA30042267F /* Buttons.swift in Sources */,
 				5BDF774A2AF56052001AEC59 /* Duration.swift in Sources */,

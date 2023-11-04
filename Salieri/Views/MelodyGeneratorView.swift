@@ -18,6 +18,12 @@ class MelodyGeneratorView: View {
     .with(title: "Остановить реквием")
     .with(backgroundColor: .systemRed)
 
+  let micButton = UIButton.standard
+    .with(title: "Микрофон")
+    .with(titleColor: .gray, forState: .normal)
+    .with(backgroundColor: .systemGreen)
+    .with(selectedTitleColor: .white)
+
   private var melodyContainer: MelodyContainer
 
   private var melodyGenerator: MelodyGenerator?
@@ -41,6 +47,13 @@ class MelodyGeneratorView: View {
       .subscribe(onNext: { [weak self] in self?.stop() })
       .disposed(by: disposeBag)
 
+    micButton.rx.tap
+      .subscribe(onNext: { [weak self] in
+        self?.melodyContainer.isMicMuted.toggle()
+        self?.micButton.isSelected.toggle()
+      })
+      .disposed(by: disposeBag)
+
     stopButton.isEnabled = false
   }
 
@@ -52,7 +65,7 @@ class MelodyGeneratorView: View {
     }
 
     bottomButtonsPanel.snp.makeConstraints {
-      $0.height.equalTo(100)
+      $0.height.equalTo(150)
     }
 
     bottomButtonsPanel.addSubview(playButton)
@@ -62,6 +75,11 @@ class MelodyGeneratorView: View {
 
     bottomButtonsPanel.addSubview(stopButton)
     stopButton.snp.makeConstraints {
+      $0.centerY.leading.trailing.equalToSuperview()
+    }
+
+    bottomButtonsPanel.addSubview(micButton)
+    micButton.snp.makeConstraints {
       $0.bottom.leading.trailing.equalToSuperview()
     }
   }
