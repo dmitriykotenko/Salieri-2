@@ -15,6 +15,18 @@ extension UIButton {
     )
   }
 
+  static func iconic(image: UIImage?,
+                     tintColor: UIColor = .systemTeal,
+                     width: CGFloat = 60) -> UIButton {
+    let iconicButton = button(backgroundColor: .clear)
+    iconicButton.imageView?.contentMode = .center
+    iconicButton.tintColor = tintColor
+
+    iconicButton.snp.makeConstraints { $0.width.equalTo(width) }
+
+    return iconicButton.with(image: image)
+  }
+
   static func small(height: CGFloat = 44) -> UIButton {
     button(
       font: .systemFont(ofSize: 14),
@@ -23,7 +35,7 @@ extension UIButton {
     )
   }
 
-  static func button(font: UIFont,
+  static func button(font: UIFont? = nil,
                      textColor: UIColor = .white,
                      backgroundColor: UIColor = .systemBlue,
                      cornerRadius: CGFloat = 0,
@@ -36,7 +48,10 @@ extension UIButton {
       button.snp.makeConstraints { $0.height.equalTo(height) }
     }
 
-    button.titleLabel?.font = font
+    if let font {
+      button.titleLabel?.font = font
+    }
+
     button.setTitleColor(textColor, for: UIControl.State.normal)
 
     button.backgroundColor = backgroundColor
@@ -53,6 +68,17 @@ extension UIButton {
   func with(titleColor: UIColor,
             forState state: UIControl.State) -> Self {
     setTitleColor(titleColor, for: state)
+    return self
+  }
+
+  func with(image: UIImage?,
+            forState state: UIControl.State = .normal) -> Self {
+    setImage(image, for: state)
+    return self
+  }
+
+  func with(width: CGFloat) -> Self {
+    snp.makeConstraints { $0.width.equalTo(width) }
     return self
   }
 

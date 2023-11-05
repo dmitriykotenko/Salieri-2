@@ -44,6 +44,15 @@ class ViewController: UIViewController {
       })
       .disposed(by: disposeBag)
 
+    generatorView.onPlayStarted = { [weak self] in
+      self?.soundVisualisationView.isHidden = false
+    }
+
+    generatorView.onPlayStopped = { [weak self] in
+      self?.soundVisualisationView.isHidden = true
+      self?.soundVisualisationView.reset()
+    }
+
     generatorView.onFramesGenerated = { [weak self] in
       self?.soundVisualisationView.add(
         rawFrames: $0.rawFrames,

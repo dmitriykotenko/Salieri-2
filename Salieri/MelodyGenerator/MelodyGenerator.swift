@@ -53,6 +53,7 @@ class MelodyGenerator {
   func play(totalDuration: Duration,
             saveToFile fileName: String? = nil) async {
     melodyContainer.isPlaying = true
+    melodyContainer.isRecoring = (fileName != nil)
 
     self.micPlayer = MicPlayer(
       audioSession: audioSession,
@@ -78,7 +79,7 @@ class MelodyGenerator {
 
     try! audioEngine.start()
 
-    fileName.map(setupFileSaving)
+    setupFrameBufferListening(fileName: fileName)
 
     channelPlayers.forEach { $0.play(totalDuration: totalDuration) }
   }
@@ -87,6 +88,7 @@ class MelodyGenerator {
     channelPlayers.forEach { $0.playerNode?.stop() }
     audioEngine.mainMixerNode.removeTap(onBus: 0)
     melodyContainer.isPlaying = false
+    melodyContainer.isRecoring = false
     share()
   }
 
@@ -110,17 +112,19 @@ class MelodyGenerator {
     channelPlayers.forEach { $0.playerNode?.play(at: startTime) }
   }
 
-  private func setupFileSaving(fileName: String) {
-    guard let fileUrl = FileManager.default.fileUrl(fileName: fileName) else { return }
+  private func setupFrameBufferListening(fileName: String?) {
+    let fileUrl = fileName.flatMap { FileManager.default.fileUrl(fileName: $0) }
 
     let bus: AVAudioNodeBus = 0
 
     let audioFormat = audioEngine.mainMixerNode.outputFormat(forBus: bus)
 
-    let audioFile = try! AVAudioFile(
-      forWriting: fileUrl,
-      settings: audioFormat.settings
-    )
+    let audioFile = fileUrl.flatMap {
+      try! AVAudioFile(
+        forWriting: $0,
+        settings: audioFormat.settings
+      )
+    }
 
     pcmBufferParser = .init()
 
@@ -132,7 +136,8 @@ class MelodyGenerator {
       block: { [weak self] buffer, time in
         currentDuration = currentDuration + 100.milliseconds
         print("now-------\(Date())")
-        try! audioFile.write(from: buffer)
+        try! audioFile?.write(from: buffer)
+
         if let frames = self?.pcmBufferParser?.processChunkedAudioData(buffer: buffer) {
           self?.onFramesGenerated(.init(
             rawFrames: frames,

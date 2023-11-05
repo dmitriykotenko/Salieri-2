@@ -10,6 +10,11 @@ import AVFoundation
 
 class SoundVisualisationView: View {
 
+  func reset() {
+    frames = []
+    currentDuration = .zero
+  }
+
   func add(rawFrames: [Float],
            rawFrameRate: Int,
            setCurrentDuration newDuration: Duration) {

@@ -9,7 +9,7 @@ class MelodyContainer {
 
   var channels: [AudioChannel]
   var isPlaying: Bool = false { didSet { stateUpdated.onNext(()) } }
-  var isRecoring: Bool { isPlaying }
+  var isRecoring: Bool = false { didSet { stateUpdated.onNext(()) } }
 
   var isMicMuted: Bool = true {
     didSet { micEvents.onNext(isMicMuted) }

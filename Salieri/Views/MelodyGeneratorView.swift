@@ -10,21 +10,18 @@ import AVFoundation
 
 class MelodyGeneratorView: View {
 
+  var onPlayStarted: () -> Void = {}
+  var onPlayStopped: () -> Void = {}
   var onFramesGenerated: (FramesPack) -> Void = { _ in }
 
   let bottomButtonsPanel = View()
 
-  let playButton = UIButton.standard.with(title: "Воспроизвести реквием")
+  let spacer = View()
 
-  let stopButton = UIButton.standard
-    .with(title: "Остановить реквием")
-    .with(backgroundColor: .systemRed)
-
-  let micButton = UIButton.standard
-    .with(title: "Микрофон")
-    .with(titleColor: .gray, forState: .normal)
-    .with(backgroundColor: .systemGreen)
-    .with(selectedTitleColor: .white)
+  let playButton = UIButton.iconic(image: .playIcon, tintColor: .systemTeal)
+  let recordButton = UIButton.iconic(image: .recordIcon, tintColor: .systemTeal)
+  let stopButton = UIButton.iconic(image: .stopIcon, tintColor: .systemTeal)
+  let micButton = UIButton.iconic(image: .micIcon, tintColor: .systemTeal)
 
   private var melodyContainer: MelodyContainer
 
@@ -45,6 +42,10 @@ class MelodyGeneratorView: View {
       .subscribe(onNext: { [weak self] in self?.play() })
       .disposed(by: disposeBag)
 
+    recordButton.rx.tap
+      .subscribe(onNext: { [weak self] in self?.record() })
+      .disposed(by: disposeBag)
+
     stopButton.rx.tap
       .subscribe(onNext: { [weak self] in self?.stop() })
       .disposed(by: disposeBag)
@@ -56,7 +57,7 @@ class MelodyGeneratorView: View {
       })
       .disposed(by: disposeBag)
 
-    stopButton.isEnabled = false
+    stopButton.isHidden = true
   }
 
   private func setupLayout() {
@@ -67,28 +68,26 @@ class MelodyGeneratorView: View {
     }
 
     bottomButtonsPanel.snp.makeConstraints {
-      $0.height.equalTo(150)
+      $0.height.equalTo(44)
     }
 
-    bottomButtonsPanel.addSubview(playButton)
-    playButton.snp.makeConstraints {
-      $0.top.leading.trailing.equalToSuperview()
+    let stack = UIStackView().preparedForAutoLayout()
+    stack.axis = .horizontal
+
+    [playButton, stopButton, recordButton, micButton].forEach {
+      stack.addArrangedSubview($0)
     }
 
-    bottomButtonsPanel.addSubview(stopButton)
-    stopButton.snp.makeConstraints {
-      $0.centerY.leading.trailing.equalToSuperview()
-    }
-
-    bottomButtonsPanel.addSubview(micButton)
-    micButton.snp.makeConstraints {
-      $0.bottom.leading.trailing.equalToSuperview()
+    bottomButtonsPanel.addSubview(stack)
+    stack.snp.makeConstraints {
+      $0.top.bottom.centerX.equalToSuperview()
     }
   }
 
-  private func play() {
-    playButton.isEnabled = false
-    stopButton.isEnabled = true
+  private func play(saveToFile fileName: String? = nil) {
+    playButton.isHidden = true
+    recordButton.isHidden = true
+    stopButton.isHidden = false
 
     self.melodyGenerator = MelodyGenerator(
       melodyContainer: melodyContainer,
@@ -100,15 +99,24 @@ class MelodyGeneratorView: View {
     Task { @MainActor in
       await melodyGenerator?.play(
         totalDuration: 36000.seconds,
-        saveToFile: "salieri-very-first-file.wav"
+        saveToFile: fileName
       )
     }
+
+    onPlayStarted()
+  }
+
+  private func record() {
+    play(saveToFile: "salieri-very-first-file.wav")
   }
 
   private func stop() {
     melodyGenerator?.stop()
 
-    stopButton.isEnabled = false
-    playButton.isEnabled = true
+    playButton.isHidden = false
+    recordButton.isHidden = false
+    stopButton.isHidden = true
+
+    onPlayStopped()
   }
 }
