@@ -16,37 +16,38 @@ class AddAudioChannelView: View {
     .with(textColor: .systemTeal)
     .with(text: " Добавить инструмент ")
 
-  private let buttonsContainer = View()
+  private let buttonsContainer = View(
+    isTransparentForGestures: true,
+    alignmentRectInsets: .init(top: 200, left: 0, bottom: 0, right: 0)
+  )
 
-  private let samples: [AudioSample] = [
-    .cMinBass,
-    .eMinSwellingPad,
-    .d80811
-  ]
-
-  private lazy var sampleButtons = samples.map {
-    UIButton.small
-      .with(title: $0.name)
-      .with(selectedTitleColor: .red)
-      .with(titleColor: .yellow, forState: .highlighted)
+  private lazy var instrumentButtons = MusicalInstrumentKind.allCases.map {
+    AudioSamplePickerView(
+      instrumentKind: $0,
+      samples: [
+        .cMinBass, .d80811, .eMinSwellingPad,
+      ]
+    )
   }
 
   private let disposeBag = DisposeBag()
 
   required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
-  override init() {
-    super.init()
+  init() {
+    super.init(
+      isTransparentForGestures: true,
+      alignmentRectInsets: .init(top: 200, left: 0, bottom: 0, right: 0)
+    )
 
     setupLayout()
 
-    zip(samples, sampleButtons).forEach { sample, button in
-      onTap(
-        of: button,
-        tapHandler: {
-          $0.addChannel(sample: sample)
-        }
-      )
+    instrumentButtons.forEach {
+      $0.audioSamplePicked
+        .subscribe(onNext: { [weak self] in
+          self?.addChannel(sample: $0)
+        })
+        .disposed(by: disposeBag)
     }
   }
 
@@ -68,15 +69,9 @@ class AddAudioChannelView: View {
       $0.edges.equalToSuperview().inset(16)
     }
 
-    sampleButtons.enumerated().forEach { index, button in
-      addButton(
-        button,
-        previousButton: index > 0 ? sampleButtons[index - 1] : nil,
-        isLast: index == sampleButtons.count - 1
-      )
-    }
+    buttonsContainer.addHorizontalStack(ofChildViews: instrumentButtons)
 
-    addSubview(titleLabel)
+    insertSubview(titleLabel, belowSubview: buttonsContainer)
     titleLabel.backgroundColor = .mainBackground
     titleLabel.snp.makeConstraints {
       $0.top.equalTo(6)
@@ -113,5 +108,9 @@ class AddAudioChannelView: View {
         self.map(tapHandler)
       })
       .disposed(by: disposeBag)
+  }
+
+  func onGlobalTouch(at point: CGPoint) {
+    instrumentButtons.forEach { $0.onGlobalTouch(at: point) }
   }
 }

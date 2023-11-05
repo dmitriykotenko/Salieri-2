@@ -22,15 +22,15 @@ class AudioChannelView: View {
 
   let titleLabel = UILabel.small
 
-  let pauseButton = UIButton.small
+  let pauseButton = UIButton.small()
     .with(title: "Пауза")
     .with(selectedTitleColor: .red)
 
-  let muteButton = UIButton.small
+  let muteButton = UIButton.small()
     .with(title: "Заглушить")
     .with(selectedTitleColor: .red)
 
-  let deleteButton = UIButton.small
+  let deleteButton = UIButton.small()
     .with(backgroundColor: .systemRed)
     .with(title: "Удалить")
     .with(selectedTitleColor: .red)

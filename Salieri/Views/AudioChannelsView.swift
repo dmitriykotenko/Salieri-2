@@ -16,8 +16,6 @@ class AudioChannelsView: View {
 
   private var channelViews: [AudioChannelView] = []
 
-  private let addChannelView = AddAudioChannelView()
-
   private var childrenDisposeBag = DisposeBag()
 
   private let disposeBag = DisposeBag()
@@ -28,12 +26,6 @@ class AudioChannelsView: View {
     self.melodyContainer = melodyContainer
     super.init()
     channelsListUpdated()
-
-    addChannelView.channelAdded
-      .subscribe(onNext: { [weak self] in
-        self?.channelAddecd($0)
-      })
-      .disposed(by: disposeBag)
   }
 
   func channelsListUpdated() {
@@ -45,31 +37,10 @@ class AudioChannelsView: View {
   private func setupLayout() {
     subviews.forEach { $0.removeFromSuperview() }
 
-    (channelViews + [addChannelView]).enumerated().forEach { index, childView in
-      let previousChildView = (index == 0) ? nil : channelViews[index - 1]
-
-      add(
-        childView: childView,
-        after: previousChildView,
-        isLast: index == channelViews.count
-      )
-    }
-  }
-
-  private func add(childView: UIView,
-                   after previousChildView: UIView?,
-                   isLast: Bool) {
-    addSubview(childView)
-    childView.snp.makeConstraints {
-      $0.leading.trailing.equalToSuperview()
-      if let previousChildView {
-        $0.top.equalTo(previousChildView.snp.bottom).offset(16)
-      } else {
-        $0.top.equalToSuperview()
-      }
-
-      if isLast { $0.bottom.equalToSuperview() }
-    }
+    addVerticalStack(
+      ofChildViews: channelViews,
+      spacing: 16
+    )
   }
 
   private func listenForChildEvents() {
@@ -99,7 +70,7 @@ class AudioChannelsView: View {
     )
   }
 
-  func channelAddecd(_ channel: AudioChannel) {
+  func channelAdded(_ channel: AudioChannel) {
     melodyContainer.process(event: .channelAdded(channel))
     channelsListUpdated()
   }

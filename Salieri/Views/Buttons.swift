@@ -15,10 +15,11 @@ extension UIButton {
     )
   }
 
-  static var small: UIButton {
+  static func small(height: CGFloat = 44) -> UIButton {
     button(
       font: .systemFont(ofSize: 14),
-      cornerRadius: 0
+      cornerRadius: 0,
+      height: height
     )
   }
 
