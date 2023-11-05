@@ -10,17 +10,25 @@ import AVFoundation
 
 class ViewController: UIViewController {
 
+  let helpLabel = UILabel.standard
+    .with(textColor: .systemTeal)
+    .with(text: """
+    Чтобы петь прямо во время записи мелодии, \
+    нажмите на крупную иконку микрофона в самом низу экрана.
+
+    Настройки всех инструментов можно менять прямо во время записи мелодии.
+
+    Чтобы выбрать нужный вариант инструмента, \
+    зажмите его иконку на пару секунд.
+    """)
+
   let micRecorder = MicRecorderView()
   let melodyProgressView = MelodyProgressView()
   let soundVisualisationView = SoundVisualisationView()
 
   let scrollView = UIScrollView().preparedForAutoLayout()
 
-  let melodyContainer = MelodyContainer(channels: [
-//    .init(segment: .init(sample: .d80811)),
-//    .init(segment: .init(sample: .cMinBass)),
-//    .init(segment: .init(sample: .eMinSwellingPad))
-  ])
+  let melodyContainer = MelodyContainer(channels: [])
 
   lazy var channelDemonstrator = AudioChannelDemonstrator(parentViewController: self)
 
@@ -102,7 +110,7 @@ class ViewController: UIViewController {
     view.addSubview(soundVisualisationView)
     soundVisualisationView.snp.makeConstraints {
       $0.leading.trailing.equalToSuperview()
-      $0.height.equalTo(66)
+      $0.height.equalTo(90)
       $0.top.equalTo(melodyProgressView.snp.bottom)
     }
 
@@ -132,13 +140,21 @@ class ViewController: UIViewController {
   }
 
   private func addChannelsView() {
+    scrollView.addSubview(helpLabel)
+
     scrollView.addSubview(channelsView)
     view.insertSubview(scrollView, belowSubview: addChannelView)
 
     channelsView.snp.makeConstraints {
-      $0.top.equalToSuperview().offset(300)
+      $0.top.equalToSuperview().offset(400)
       $0.leading.bottom.equalToSuperview()
       $0.width.equalTo(view)
+    }
+
+    helpLabel.snp.makeConstraints {
+      $0.width.equalTo(channelsView).offset(-32)
+      $0.leading.equalTo(channelsView).offset(16)
+      $0.bottom.equalTo(channelsView.snp.top).offset(-32)
     }
     
     scrollView.snp.makeConstraints {
@@ -154,7 +170,7 @@ class ViewController: UIViewController {
     scrollView.setNeedsLayout()
     scrollView.layoutIfNeeded()
 
-    scrollToBottom(animated: melodyContainer.channels.count >= 2)
+    scrollToBottom(animated: true)
   }
 
   private func scrollToBottom(animated: Bool) {

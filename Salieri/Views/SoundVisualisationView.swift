@@ -79,8 +79,23 @@ class SoundVisualisationView: View {
     context.strokePath()
 
     if let finalCircleCenter = points.last {
+      context.setShadow(offset: .zero, blur: 20, color: shadowColor.cgColor)
+      context.setFillColor(strokeColor.withAlphaComponent(0.25).cgColor)
+      let radius2 = finalCircleRadius * 3
+
+      context.addEllipse(
+        in: .init(
+          x: finalCircleCenter.x - radius2,
+          y: finalCircleCenter.y - radius2,
+          width: 2 * radius2,
+          height: 2 * radius2
+        )
+      )
+      context.fillPath()
+
       context.setShadow(offset: .zero, blur: 10, color: shadowColor.cgColor)
       context.setFillColor(strokeColor.withAlphaComponent(1).cgColor)
+      context.setAlpha(1)
       let radius = finalCircleRadius
 
       context.addEllipse(
@@ -97,7 +112,7 @@ class SoundVisualisationView: View {
   }
 
   private func lineToDraw(inRect rect: CGRect) -> [CGPoint] {
-    let safeRect = rect.insetBy(dx: 2 * finalCircleRadius, dy: 2 * finalCircleRadius)
+    let safeRect = rect.insetBy(dx: 3 * finalCircleRadius, dy: 3 * finalCircleRadius)
 
     let loudnessBounds = CGFloat(0.28)...CGFloat(0.65)
 
@@ -108,13 +123,6 @@ class SoundVisualisationView: View {
     let loudnesses = normalizedLoudnesses.map {
       $0.normalizedInside(bounds: 0...1)
     }
-//
-//    let loudnesses = frames.map {
-//      (abs($0) - loudnessBounds.lowerBound) / (loudnessBounds.upperBound - loudnessBounds.lowerBound)
-//    }
-
-//    let durationUpperBound = durationThresholds.first { $0 >= currentDuration }!
-//    let durationBounds = (currentDuration - 10.seconds)...(currentDuration + 0.seconds)
 
     let durationBounds =
       max(currentDuration - 9.seconds, .zero)...max(currentDuration + 1.seconds, 10.seconds)
@@ -137,7 +145,7 @@ class SoundVisualisationView: View {
     }
 
     let yFromLoudness = { (loudness: CGFloat) in
-      rect.maxY - loudness * rect.height
+      safeRect.maxY - loudness * safeRect.height
     }
 
     let points = loudnesses.enumerated().map { index, loudness in

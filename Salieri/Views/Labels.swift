@@ -9,15 +9,15 @@ import UIKit
 extension UILabel {
 
   static var standard: UILabel {
-    label(font: .systemFont(ofSize: 24))
+    label(font: .systemFont(ofSize: 24, weight: .medium))
   }
 
   static var standardWithMonospacedDigits: UILabel {
-    label(font: .monospacedDigitSystemFont(ofSize: 24, weight: .regular))
+    label(font: .monospacedDigitSystemFont(ofSize: 24, weight: .medium))
   }
 
   static var small: UILabel {
-    label(font: .systemFont(ofSize: 14))
+    label(font: .systemFont(ofSize: 14, weight: .semibold))
   }
 
   static func label(font: UIFont,

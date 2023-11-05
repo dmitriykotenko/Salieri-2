@@ -16,9 +16,19 @@ class MicRecorderView: View {
   let visualisationView = SoundVisualisationView()
   let stopButton = UIButton.iconic(image: .stopIcon, tintColor: .systemTeal)
 
+  let titleLabel = UILabel.standard
+    .with(text: "Пойте, мы записываем")
+    .with(textColor: .systemTeal)
+
+  let giantMicIconView = UIImageView.imageView(
+    image: .largeMicIcon,
+    size: .init(width: 200, height: 200)
+  )
+
   let cancelButton = UIButton.standard
     .with(title: "Отмена")
     .with(titleColor: .systemTeal, forState: .normal)
+    .with(backgroundColor: .clear)
 
   private let melodyContainer = MelodyContainer()
 
@@ -46,7 +56,7 @@ class MicRecorderView: View {
   }
 
   private func setupLayout() {
-    backgroundColor = .systemBlue
+    backgroundColor = .mainBackground
 
     let topStack = UIStackView().preparedForAutoLayout()
     topStack.axis = .vertical
@@ -68,6 +78,17 @@ class MicRecorderView: View {
     addSubview(buttonsStack)
     buttonsStack.snp.makeConstraints {
       $0.bottom.centerX.equalTo(safeAreaLayoutGuide)
+    }
+
+    giantMicIconView.tintColor = .systemTeal
+    addSubview(giantMicIconView)
+    giantMicIconView.snp.makeConstraints {
+      $0.center.equalToSuperview()
+    }
+
+    addSubview(titleLabel)
+    titleLabel.snp.makeConstraints {
+      $0.top.centerX.equalTo(safeAreaLayoutGuide)
     }
   }
 

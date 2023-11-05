@@ -35,7 +35,7 @@ class MelodyProgressView: View {
       minutes: components.minutes,
       seconds: components.seconds,
       thousandths: components.thousandths
-    )
+    ).appending(" сек.")
   }
 
   private func textFrom(hours: Int,
@@ -49,11 +49,11 @@ class MelodyProgressView: View {
     let deciSeconds = thousandths / 100
 
     if startWithHours {
-      return String(format: "%d:%02d:%02d.%1d", hours, minutes, seconds, deciSeconds)
+      return String(format: "%d:%02d:%02d,%1d", hours, minutes, seconds, deciSeconds)
     } else if startWithMinutes {
-      return String(format: "%d:%02d.%1d", minutes, seconds, deciSeconds)
+      return String(format: "%d:%02d,%1d", minutes, seconds, deciSeconds)
     } else {
-      return String(format: "%d.%1d", seconds, deciSeconds)
+      return String(format: "%d,%1d", seconds, deciSeconds)
     }
   }
 

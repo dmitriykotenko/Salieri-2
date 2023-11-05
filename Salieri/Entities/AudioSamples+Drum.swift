@@ -12,7 +12,7 @@ extension AudioSample {
       name: "Ударные 1",
       shortName: "Сэмпл 1",
       summary: nil,
-      fileName: .resource("Future-Bass-Hihat-3.wav")
+      fileName: .resource("Titan-Kick-7---C#.wav")
     ),
     .init(
       instrumentKind: .drum,
@@ -165,13 +165,12 @@ extension AudioSample {
         summary: nil,
         fileName: .resource("Titan-Buildup-Drums-76---170-BPM.wav")
       ),
-
-      .init(
-        instrumentKind: .drum,
-        name: "Ударные 21",
-        shortName: "Сэмпл 21",
-        summary: nil,
-        fileName: .resource("Titan-Kick-7---C#.wav")
-      )
+    .init(
+      instrumentKind: .drum,
+      name: "Ударные 21",
+      shortName: "Сэмпл 21",
+      summary: nil,
+      fileName: .resource("Future-Bass-Hihat-3.wav")
+    )
   ]
 }
