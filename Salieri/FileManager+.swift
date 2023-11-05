@@ -10,6 +10,10 @@ extension FileManager {
     urls(for: .documentDirectory, in: .userDomainMask).first
   }
 
+  var micRecordingsFolder: URL? {
+    documentsFolder?.appending(component: "mic-recordings")
+  }
+
   func fileUrl(fileName: String,
                parentFolder: URL?) -> URL? {
     parentFolder?.appendingPathComponent(fileName)

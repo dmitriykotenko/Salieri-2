@@ -41,7 +41,10 @@ class MusicalInstrumentKindView: View {
   }
 
   private func setupLayout() {
-    snp.makeConstraints { $0.width.height.equalTo(120) }
+    snp.makeConstraints {
+      $0.width.equalTo(90)
+      $0.height.equalTo(120)
+    }
 
     addSubview(imageView)
     imageView.snp.makeConstraints {

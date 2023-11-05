@@ -9,6 +9,15 @@ import UIKit
 
 extension URL {
 
+  static func from(audioSampleFileName: AudioSample.FileName) -> URL? {
+    switch audioSampleFileName {
+    case .resource(let resourceFileName):
+      return from(resourceFileName: resourceFileName)
+    case .recorded(let fileUrl):
+      return fileUrl
+    }
+  }
+
   static func from(resourceFileName: String) -> URL? {
     guard let (fileName, fileExtension) = resourceFileName.fileNameAndExtension
     else { return nil }

@@ -11,6 +11,7 @@ import AVFoundation
 class AddAudioChannelView: View {
 
   var channelAdded = PublishSubject<AudioChannel>()
+  var micTapped = PublishSubject<Void>()
 
   private let titleLabel = UILabel.small
     .with(textColor: .systemTeal)
@@ -24,9 +25,7 @@ class AddAudioChannelView: View {
   private lazy var instrumentButtons = MusicalInstrumentKind.allCases.map {
     AudioSamplePickerView(
       instrumentKind: $0,
-      samples: [
-        .cMinBass, .d80811, .eMinSwellingPad,
-      ]
+      samples: $0.predefinedSamples
     )
   }
 
@@ -46,6 +45,12 @@ class AddAudioChannelView: View {
       $0.audioSamplePicked
         .subscribe(onNext: { [weak self] in
           self?.addChannel(sample: $0)
+        })
+        .disposed(by: disposeBag)
+
+      $0.micTapped
+        .subscribe(onNext: { [weak self] in
+          self?.micTapped.onNext(())
         })
         .disposed(by: disposeBag)
     }

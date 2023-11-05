@@ -19,6 +19,7 @@ class MelodyGenerator {
   var pcmBufferParser: PcmBufferParser?
 
   var onFramesGenerated: (FramesPack) -> Void = { _ in }
+  var shouldShareRecordedMelody: Bool
 
   private weak var parentViewController: UIViewController?
   private var sharer: MelodySharer?
@@ -27,9 +28,11 @@ class MelodyGenerator {
   private let disposeBag = DisposeBag()
 
   init(melodyContainer: MelodyContainer,
-       parentViewController: UIViewController?) {
+       parentViewController: UIViewController?,
+       shouldShareRecordedMelody: Bool) {
     self.melodyContainer = melodyContainer
     self.parentViewController = parentViewController
+    self.shouldShareRecordedMelody = shouldShareRecordedMelody
 
     state = .init(
       channels: melodyContainer.channels,
@@ -89,7 +92,10 @@ class MelodyGenerator {
     audioEngine.mainMixerNode.removeTap(onBus: 0)
     melodyContainer.isPlaying = false
     melodyContainer.isRecoring = false
-    share()
+
+    if shouldShareRecordedMelody {
+      share()
+    }
   }
 
   func share() {

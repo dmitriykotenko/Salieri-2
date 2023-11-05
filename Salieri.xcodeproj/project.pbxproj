@@ -61,6 +61,8 @@
 		5BDF77932AF79EFD001AEC59 /* SoundVisualisationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF77922AF79EFD001AEC59 /* SoundVisualisationView.swift */; };
 		5BDF77952AF7AB04001AEC59 /* PcmBufferParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF77942AF7AB04001AEC59 /* PcmBufferParser.swift */; };
 		5BDF77972AF7BCEB001AEC59 /* MelodyProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF77962AF7BCEB001AEC59 /* MelodyProgressView.swift */; };
+		5BDF77992AF7D05D001AEC59 /* MicRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF77982AF7D05D001AEC59 /* MicRecorderView.swift */; };
+		5BDF779B2AF7DBE9001AEC59 /* MicRecordingsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF779A2AF7DBE9001AEC59 /* MicRecordingsStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +137,8 @@
 		5BDF77922AF79EFD001AEC59 /* SoundVisualisationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundVisualisationView.swift; sourceTree = "<group>"; };
 		5BDF77942AF7AB04001AEC59 /* PcmBufferParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PcmBufferParser.swift; sourceTree = "<group>"; };
 		5BDF77962AF7BCEB001AEC59 /* MelodyProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MelodyProgressView.swift; sourceTree = "<group>"; };
+		5BDF77982AF7D05D001AEC59 /* MicRecorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicRecorderView.swift; sourceTree = "<group>"; };
+		5BDF779A2AF7DBE9001AEC59 /* MicRecordingsStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicRecordingsStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +259,7 @@
 			children = (
 				5BDF77602AF623C3001AEC59 /* AudioChannelPlayer.swift */,
 				5BDF77852AF6CB2D001AEC59 /* MicPlayer.swift */,
+				5BDF779A2AF7DBE9001AEC59 /* MicRecordingsStorage.swift */,
 				5BDF77622AF62570001AEC59 /* AudioChannelEvent.swift */,
 				5BDF776D2AF64B36001AEC59 /* MelodyEvent.swift */,
 				5BDF77752AF69766001AEC59 /* MelodyContainer.swift */,
@@ -279,6 +284,7 @@
 				5BDF77792AF6BD81001AEC59 /* Colors.swift */,
 				5BDF777D2AF6C19D001AEC59 /* MelodyGeneratorView.swift */,
 				5BDF77962AF7BCEB001AEC59 /* MelodyProgressView.swift */,
+				5BDF77982AF7D05D001AEC59 /* MicRecorderView.swift */,
 				5BDF77922AF79EFD001AEC59 /* SoundVisualisationView.swift */,
 				5BDF77732AF66FD8001AEC59 /* AudioChannelsView.swift */,
 				5BDF775C2AF61D50001AEC59 /* AudioChannelView.swift */,
@@ -448,6 +454,7 @@
 				5BDF775B2AF57D55001AEC59 /* FileManager+.swift in Sources */,
 				5BDF77972AF7BCEB001AEC59 /* MelodyProgressView.swift in Sources */,
 				5BDF77652AF629F3001AEC59 /* UIView+.swift in Sources */,
+				5BDF779B2AF7DBE9001AEC59 /* MicRecordingsStorage.swift in Sources */,
 				5BDF77802AF6C347001AEC59 /* Button.swift in Sources */,
 				5BDF77502AF56347001AEC59 /* MelodyGeneratorState.swift in Sources */,
 				5BDF775F2AF6207B001AEC59 /* Buildable.swift in Sources */,
@@ -470,6 +477,7 @@
 				5BDF77442AF55F1B001AEC59 /* AudioSample.swift in Sources */,
 				5BDF77842AF6C874001AEC59 /* UIResponder+.swift in Sources */,
 				5BDF777E2AF6C19D001AEC59 /* MelodyGeneratorView.swift in Sources */,
+				5BDF77992AF7D05D001AEC59 /* MicRecorderView.swift in Sources */,
 				5BDF777A2AF6BD81001AEC59 /* Colors.swift in Sources */,
 				5BDF77632AF62570001AEC59 /* AudioChannelEvent.swift in Sources */,
 				5BDF77692AF6368F001AEC59 /* SliderView.swift in Sources */,

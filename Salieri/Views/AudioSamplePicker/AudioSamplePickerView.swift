@@ -12,6 +12,7 @@ class AudioSamplePickerView: Control {
 
   lazy var audioSample = BehaviorSubject<AudioSample?>(value: samples[0])
   lazy var audioSamplePicked = PublishSubject<AudioSample>()
+  lazy var micTapped = PublishSubject<Void>()
 
   private let instrumentKind: MusicalInstrumentKind
   private let samples: [AudioSample]
@@ -72,7 +73,11 @@ class AudioSamplePickerView: Control {
   @objc
   private func onTap() {
     samplesView.isHidden = true
-    samplePicked(samples[0])
+    if instrumentKind != .mic {
+      samplePicked(samples[0])
+    } else {
+      micTapped.onNext(())
+    }
   }
 
   private func samplePickedFromList(_ sample: AudioSample) {
@@ -87,7 +92,9 @@ class AudioSamplePickerView: Control {
 
   @objc
   private func onLongTap() {
-    samplesView.isHidden = false
+    if instrumentKind != .mic {
+      samplesView.isHidden = false
+    }
   }
 
   func onGlobalTouch(at point: CGPoint) {

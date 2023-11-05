@@ -181,6 +181,7 @@ class AudioChannelView: View {
   }
 
   private func updateSliders() {
+    silenceLengthSlider.isHidden = !channel.segment.sample.canBeRepeated
     _ = loudnessSlider.with(value: Float(channel.segment.loudness) / 100)
     _ = silenceLengthSlider.with(value: Float(channel.segment.silenceLength))
   }

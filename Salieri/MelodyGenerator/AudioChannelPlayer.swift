@@ -33,10 +33,7 @@ class AudioChannelPlayer {
     )
   }
 
-  func play(totalDuration: Duration,
-            saveToFile fileName: String? = nil) {
-    fileName.map(setupFileSaving)
-
+  func play(totalDuration: Duration) {
     playerNode?.prepare(withFrameCount: 8192)
 
     let hostTimeNow = mach_absolute_time()
@@ -46,28 +43,6 @@ class AudioChannelPlayer {
     let startTime = AVAudioTime(hostTime: hostTimeFuture)
 
     playerNode?.play(at: startTime)
-  }
-
-  private func setupFileSaving(fileName: String) {
-    guard let fileUrl = FileManager.default.fileUrl(fileName: fileName) else { return }
-
-    let bus: AVAudioNodeBus = 0
-
-    let audioFormat = audioEngine.mainMixerNode.outputFormat(forBus: bus)
-
-    let audioFile = try! AVAudioFile(
-      forWriting: fileUrl,
-      settings: audioFormat.settings
-    )
-
-    audioEngine.mainMixerNode.installTap(
-      onBus: bus,
-      bufferSize: 4096,
-      format: audioFormat,
-      block: { buffer, time in
-        try! audioFile.write(from: buffer)
-      }
-    )
   }
 
   private func setupAudioEngine() {

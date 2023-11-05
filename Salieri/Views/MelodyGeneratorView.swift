@@ -91,7 +91,8 @@ class MelodyGeneratorView: View {
 
     self.melodyGenerator = MelodyGenerator(
       melodyContainer: melodyContainer,
-      parentViewController: containingViewController
+      parentViewController: containingViewController,
+      shouldShareRecordedMelody: true
     )
 
     self.melodyGenerator?.onFramesGenerated = onFramesGenerated

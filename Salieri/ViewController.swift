@@ -10,6 +10,7 @@ import AVFoundation
 
 class ViewController: UIViewController {
 
+  let micRecorder = MicRecorderView()
   let melodyProgressView = MelodyProgressView()
   let soundVisualisationView = SoundVisualisationView()
 
@@ -40,7 +41,13 @@ class ViewController: UIViewController {
 
     addChannelView.channelAdded
       .subscribe(onNext: { [weak self] in
-        self?.channelsView.channelAdded($0)
+        self?.onChannelAdded($0)
+      })
+      .disposed(by: disposeBag)
+
+    addChannelView.micTapped
+      .subscribe(onNext: { [weak self] in
+        self?.onMicInstrumentTapped()
       })
       .disposed(by: disposeBag)
 
@@ -93,6 +100,10 @@ class ViewController: UIViewController {
     addMelodyGeneratorView()
     addAddChannelView()
     addChannelsView()
+
+    micRecorder.isHidden = true
+    view.addSubview(micRecorder)
+    micRecorder.snp.makeConstraints { $0.edges.equalToSuperview() }
   }
 
   private func addMelodyGeneratorView() {
@@ -126,6 +137,29 @@ class ViewController: UIViewController {
       $0.bottom.equalTo(addChannelView.snp.top).inset(-16)
       $0.top.equalTo(soundVisualisationView.snp.bottom).inset(-16)
     }
+  }
+
+  private func onChannelAdded(_ channel: AudioChannel) {
+    channelsView.channelAdded(channel)
+  }
+
+  private func onMicInstrumentTapped() {
+    micRecorder.isHidden = false
+
+    micRecorder.onFinish = { [weak self] audioSample in
+      if let audioSample {
+        self?.channelsView.channelAdded(.init(
+          segment: .init(
+            sample: audioSample,
+            silenceLength: 10_000_000_000
+          )
+        ))
+      }
+
+      self?.micRecorder.isHidden = true
+    }
+
+    micRecorder.record()
   }
 
   @objc

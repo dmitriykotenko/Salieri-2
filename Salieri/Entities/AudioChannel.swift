@@ -30,7 +30,7 @@ struct AudioChannel: Equatable, Hashable, Codable, Buildable {
 
   func asAudioNode(audioEngine: AVAudioEngine,
                    totalDuraton: Duration) async -> AVAudioPlayerNode {
-    let fileUrl = URL.from(resourceFileName: segment.sample.fileName)!
+    let fileUrl = URL.from(audioSampleFileName: segment.sample.fileName)!
 
     let audioFile = try! AVAudioFile(forReading: fileUrl)
 
@@ -55,7 +55,7 @@ struct AudioChannel: Equatable, Hashable, Codable, Buildable {
                   audioNode: AVAudioPlayerNode,
                   totalDuraton: Duration,
                   offset: Duration = .zero) async -> AVAudioPlayerNode {
-    let fileUrl = URL.from(resourceFileName: segment.sample.fileName)!
+    let fileUrl = URL.from(audioSampleFileName: segment.sample.fileName)!
 
     let audioFile = try! AVAudioFile(forReading: fileUrl)
 
