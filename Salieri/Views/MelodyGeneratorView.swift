@@ -11,7 +11,7 @@ import AVFoundation
 class MelodyGeneratorView: View {
 
   var onPlayStarted: () -> Void = {}
-  var onPlayStopped: () -> Void = {}
+  var onPlayFinished: () -> Void = {}
   var onFramesGenerated: (FramesPack) -> Void = { _ in }
 
   let bottomButtonsPanel = View()
@@ -118,6 +118,6 @@ class MelodyGeneratorView: View {
     recordButton.isHidden = false
     stopButton.isHidden = true
 
-    onPlayStopped()
+    onPlayFinished()
   }
 }

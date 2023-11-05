@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     .init(segment: .init(sample: .eMinSwellingPad))
   ])
 
+  lazy var channelDemonstrator = AudioChannelDemonstrator(parentViewController: self)
+
   lazy var channelsView = AudioChannelsView(melodyContainer: melodyContainer)
   lazy var generatorView = MelodyGeneratorView(melodyContainer: melodyContainer)
 
@@ -52,10 +54,11 @@ class ViewController: UIViewController {
       .disposed(by: disposeBag)
 
     generatorView.onPlayStarted = { [weak self] in
+      self?.channelDemonstrator.stop()
       self?.soundVisualisationView.isHidden = false
     }
 
-    generatorView.onPlayStopped = { [weak self] in
+    generatorView.onPlayFinished = { [weak self] in
       self?.soundVisualisationView.isHidden = true
       self?.soundVisualisationView.reset()
     }
@@ -77,6 +80,8 @@ class ViewController: UIViewController {
         melodyProgressView.isRecording = melodyContainer.isRecoring
       })
       .disposed(by: disposeBag)
+
+    setupChannelDemonstration()
   }
 
   private func setupLayout() {
@@ -160,6 +165,35 @@ class ViewController: UIViewController {
     }
 
     micRecorder.record()
+  }
+
+  private func setupChannelDemonstration() {
+    melodyContainer.channelEvents
+      .filter { [weak self] _ in self?.melodyContainer.isPlaying == false }
+      .subscribe(onNext: { [weak self] in
+        switch $0 {
+        case .isPaused(let channel, let isPaused):
+          if isPaused {
+            self?.stopChannelDemonstration()
+          } else {
+            self?.demonstrateChannel(channel)
+          }
+        default:
+          break
+        }
+      })
+      .disposed(by: disposeBag)
+  }
+
+  private func demonstrateChannel(_ channel: AudioChannel) {
+    channelDemonstrator.stop()
+    Task {
+      await channelDemonstrator.play(channel: channel, totalDuration: 600.seconds)
+    }
+  }
+
+  private func stopChannelDemonstration() {
+    channelDemonstrator.stop()
   }
 
   @objc
