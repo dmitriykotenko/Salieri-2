@@ -63,6 +63,7 @@ class ViewController: UIViewController {
     generatorView.onPlayFinished = { [weak self] in
       self?.soundVisualisationView.isHidden = true
       self?.soundVisualisationView.reset()
+      self?.melodyProgressView.reset()
       self?.channelsView.update()
     }
 

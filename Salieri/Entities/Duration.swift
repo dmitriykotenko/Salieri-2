@@ -15,6 +15,22 @@ struct Duration: Equatable, Hashable, Codable, Comparable {
     .init(milliseconds: -milliseconds)
   }
 
+  var prepareToFormat: (hours: Int, minutes: Int, seconds: Int, thousandths: Int) {
+    let absoluteMilliseconds = abs(milliseconds)
+
+    let thousandths = absoluteMilliseconds % 1000
+    let unsafeSeconds = (absoluteMilliseconds - thousandths) / 1000
+    let unsafeMinutes = unsafeSeconds / 60
+    let unsafeHours = unsafeMinutes / 60
+
+    return (
+      hours: unsafeHours,
+      minutes: unsafeMinutes % 60,
+      seconds: unsafeSeconds % 60,
+      thousandths: thousandths
+    )
+  }
+
   static let zero = 0.milliseconds
 
   static func + (this: Duration, that: Duration) -> Duration {

@@ -14,6 +14,10 @@ class MelodyProgressView: View {
   var isRecording: Bool = false { didSet { update() } }
   var isPlaying: Bool = false { didSet { update() } }
 
+  func reset() {
+    currentDuration = nil
+  }
+
   private func update() {
     DispatchQueue.main.async {
       self.updateImmediately()
@@ -24,9 +28,33 @@ class MelodyProgressView: View {
     isHidden = !isPlaying
     recordingView.isHidden = !isRecording
 
-    let floatDuration = CGFloat((currentDuration ?? .zero).milliseconds) / 1000
-    durationLabel.text =
-      NumberFormatter.melodyProgress.string(from: floatDuration as NSNumber)?.appending(" сек.")
+    let components = (currentDuration ?? .zero).prepareToFormat
+
+    durationLabel.text = textFrom(
+      hours: components.hours,
+      minutes: components.minutes,
+      seconds: components.seconds,
+      thousandths: components.thousandths
+    )
+  }
+
+  private func textFrom(hours: Int,
+                        minutes: Int,
+                        seconds: Int,
+                        thousandths: Int) -> String {
+    let startWithHours = hours > 0
+    let startWithMinutes = !startWithHours && (minutes > 0)
+    let startWithSeconds = !startWithHours && !startWithMinutes
+
+    let deciSeconds = thousandths / 100
+
+    if startWithHours {
+      return String(format: "%d:%02d:%02d.%1d", hours, minutes, seconds, deciSeconds)
+    } else if startWithMinutes {
+      return String(format: "%d:%02d.%1d", minutes, seconds, deciSeconds)
+    } else {
+      return String(format: "%d.%1d", seconds, deciSeconds)
+    }
   }
 
   let recordingView = {
