@@ -40,11 +40,11 @@ enum MusicalInstrumentKind: Equatable, Hashable, Codable, CaseIterable {
   var predefinedSamples: [AudioSample] {
     switch self {
     case .guitar:
-      return [.guitar1, .guitar2, .guitar3]
+      return AudioSample.guitarSamples
     case .drum:
-      return [.drum1, .drum2, .drum3]
+      return AudioSample.drumSamples
     case .wind:
-      return [.wind1, .wind2, .wind3]
+      return AudioSample.windSamples
     case .mic:
       return []
     }

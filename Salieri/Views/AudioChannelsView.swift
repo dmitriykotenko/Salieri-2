@@ -92,6 +92,8 @@ class AudioChannelsView: View {
   }
 
   private func deleteChannel(_ channel: AudioChannel) {
+    guard !melodyContainer.isPlaying else { return }
+    
     melodyContainer.process(event: .channelDeleted(id: channel.id))
 
     let channelHeight = channelViews.first { $0.channel.id == channel.id }?.frame.height ?? 0

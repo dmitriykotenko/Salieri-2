@@ -64,6 +64,50 @@
 		5BDF77992AF7D05D001AEC59 /* MicRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF77982AF7D05D001AEC59 /* MicRecorderView.swift */; };
 		5BDF779B2AF7DBE9001AEC59 /* MicRecordingsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF779A2AF7DBE9001AEC59 /* MicRecordingsStorage.swift */; };
 		5BDF779D2AF7EAEB001AEC59 /* AudioChannelDemonstrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF779C2AF7EAEB001AEC59 /* AudioChannelDemonstrator.swift */; };
+		5BDF77BE2AF82261001AEC59 /* Titan-Guitar-Melody-Loop-11---160-BPM-D#-Min.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77B42AF82260001AEC59 /* Titan-Guitar-Melody-Loop-11---160-BPM-D#-Min.wav */; };
+		5BDF77BF2AF82261001AEC59 /* Titan-Guitar-Chord-Loop-8---140-BPM-F#-Min.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77B52AF82260001AEC59 /* Titan-Guitar-Chord-Loop-8---140-BPM-F#-Min.wav */; };
+		5BDF77C02AF82261001AEC59 /* Moonlight-Guitar-Loop-8---110-BPM-A-Maj.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77B62AF82260001AEC59 /* Moonlight-Guitar-Loop-8---110-BPM-A-Maj.wav */; };
+		5BDF77C12AF82261001AEC59 /* Titan-Guitar-Chord-Loop-4---140-BPM-D#-Min.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77B72AF82261001AEC59 /* Titan-Guitar-Chord-Loop-4---140-BPM-D#-Min.wav */; };
+		5BDF77C22AF82261001AEC59 /* Moonlight-Guitar-Loop-7---110-BPM-G#-Maj.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77B82AF82261001AEC59 /* Moonlight-Guitar-Loop-7---110-BPM-G#-Maj.wav */; };
+		5BDF77C32AF82261001AEC59 /* Moonlight-Guitar-Loop-10---110-BPM-A-Min.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77B92AF82261001AEC59 /* Moonlight-Guitar-Loop-10---110-BPM-A-Min.wav */; };
+		5BDF77C42AF82261001AEC59 /* GG-Funk-Chord-Loop-7---100-BPM-F-Min.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77BA2AF82261001AEC59 /* GG-Funk-Chord-Loop-7---100-BPM-F-Min.wav */; };
+		5BDF77C52AF82261001AEC59 /* Moonlight-Guitar-Loop-3---100-BPM-F-Maj.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77BB2AF82261001AEC59 /* Moonlight-Guitar-Loop-3---100-BPM-F-Maj.wav */; };
+		5BDF77C62AF82261001AEC59 /* Titan-Guitar-Chord-Loop-11---160-BPM-D#-Maj.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77BC2AF82261001AEC59 /* Titan-Guitar-Chord-Loop-11---160-BPM-D#-Maj.wav */; };
+		5BDF77C72AF82261001AEC59 /* Titan-Guitar-Melody-Loop-9---160-BPM-D-Maj.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77BD2AF82261001AEC59 /* Titan-Guitar-Melody-Loop-9---160-BPM-D-Maj.wav */; };
+		5BDF77C92AF82363001AEC59 /* AudioSamples+Guitar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF77C82AF82363001AEC59 /* AudioSamples+Guitar.swift */; };
+		5BDF77E02AF82659001AEC59 /* Heater-Kick-16.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77CB2AF82658001AEC59 /* Heater-Kick-16.wav */; };
+		5BDF77E12AF82659001AEC59 /* Main-Clap-3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77CC2AF82658001AEC59 /* Main-Clap-3.wav */; };
+		5BDF77E22AF82659001AEC59 /* Heater-Percussion-26.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77CD2AF82658001AEC59 /* Heater-Percussion-26.wav */; };
+		5BDF77E32AF82659001AEC59 /* Ride-25.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77CE2AF82658001AEC59 /* Ride-25.wav */; };
+		5BDF77E42AF82659001AEC59 /* Future-Bass-Hihat-3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77CF2AF82658001AEC59 /* Future-Bass-Hihat-3.wav */; };
+		5BDF77E52AF82659001AEC59 /* Heater-Closed-Hat-2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77D02AF82658001AEC59 /* Heater-Closed-Hat-2.wav */; };
+		5BDF77E62AF82659001AEC59 /* Organic-Percussion-Shot-13.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77D12AF82658001AEC59 /* Organic-Percussion-Shot-13.wav */; };
+		5BDF77E72AF82659001AEC59 /* Titan-Buildup-Drums-68---160-BPM.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77D22AF82658001AEC59 /* Titan-Buildup-Drums-68---160-BPM.wav */; };
+		5BDF77E82AF82659001AEC59 /* Future-Bass-Crash-2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77D32AF82658001AEC59 /* Future-Bass-Crash-2.wav */; };
+		5BDF77E92AF82659001AEC59 /* Heater-Full-Drum-Loop-1---160-BPM.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77D42AF82658001AEC59 /* Heater-Full-Drum-Loop-1---160-BPM.wav */; };
+		5BDF77EA2AF82659001AEC59 /* Heater-Perc-Loop-25---150-BPM.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77D52AF82658001AEC59 /* Heater-Perc-Loop-25---150-BPM.wav */; };
+		5BDF77EB2AF82659001AEC59 /* Heater-Clap-6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77D62AF82658001AEC59 /* Heater-Clap-6.wav */; };
+		5BDF77EC2AF82659001AEC59 /* Future-Bass-Buildup-Drums-1---150-BPM.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77D72AF82658001AEC59 /* Future-Bass-Buildup-Drums-1---150-BPM.wav */; };
+		5BDF77ED2AF82659001AEC59 /* Tension-Buildup-Drums-7---140-BPM.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77D82AF82659001AEC59 /* Tension-Buildup-Drums-7---140-BPM.wav */; };
+		5BDF77EE2AF82659001AEC59 /* Titan-Kick-7---C#.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77D92AF82659001AEC59 /* Titan-Kick-7---C#.wav */; };
+		5BDF77EF2AF82659001AEC59 /* Titan-Buildup-Drums-76---170-BPM.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77DA2AF82659001AEC59 /* Titan-Buildup-Drums-76---170-BPM.wav */; };
+		5BDF77F02AF82659001AEC59 /* Future-Bass-Hihat-Loop-5---160-BPM.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77DB2AF82659001AEC59 /* Future-Bass-Hihat-Loop-5---160-BPM.wav */; };
+		5BDF77F12AF82659001AEC59 /* Titan-Big-Clap-7.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77DC2AF82659001AEC59 /* Titan-Big-Clap-7.wav */; };
+		5BDF77F22AF82659001AEC59 /* Future-Bass-Perc-7.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77DD2AF82659001AEC59 /* Future-Bass-Perc-7.wav */; };
+		5BDF77F32AF82659001AEC59 /* Tension-Buildup-Drums-12---150-BPM.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77DE2AF82659001AEC59 /* Tension-Buildup-Drums-12---150-BPM.wav */; };
+		5BDF77F42AF82659001AEC59 /* Master-Collection-Vol-2-Full-Drum-Loop-24---160-BPM.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77DF2AF82659001AEC59 /* Master-Collection-Vol-2-Full-Drum-Loop-24---160-BPM.wav */; };
+		5BDF77F62AF8274F001AEC59 /* AudioSamples+Drum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF77F52AF8274F001AEC59 /* AudioSamples+Drum.swift */; };
+		5BDF77F82AF8278D001AEC59 /* AudioSamples+Wind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF77F72AF8278D001AEC59 /* AudioSamples+Wind.swift */; };
+		5BDF78042AF82A3F001AEC59 /* Alesis-S4+-Bag-Pipe-C4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77FA2AF82A3E001AEC59 /* Alesis-S4+-Bag-Pipe-C4.wav */; };
+		5BDF78052AF82A3F001AEC59 /* 1980s-Casio-Flute-C5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77FB2AF82A3E001AEC59 /* 1980s-Casio-Flute-C5.wav */; };
+		5BDF78062AF82A3F001AEC59 /* Nexus6SFX_LowDroneC.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77FC2AF82A3E001AEC59 /* Nexus6SFX_LowDroneC.wav */; };
+		5BDF78072AF82A3F001AEC59 /* Nexus6SFX_LowDroneStrike.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77FD2AF82A3F001AEC59 /* Nexus6SFX_LowDroneStrike.wav */; };
+		5BDF78082AF82A3F001AEC59 /* Alesis-Fusion-Whistle-C.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77FE2AF82A3F001AEC59 /* Alesis-Fusion-Whistle-C.wav */; };
+		5BDF78092AF82A3F001AEC59 /* Nexus6SFX_SoftHornHit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77FF2AF82A3F001AEC59 /* Nexus6SFX_SoftHornHit.wav */; };
+		5BDF780A2AF82A3F001AEC59 /* Nexus6SFX_LongDroneStrike.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF78002AF82A3F001AEC59 /* Nexus6SFX_LongDroneStrike.wav */; };
+		5BDF780B2AF82A3F001AEC59 /* 1980s-Casio-Clarinet-C5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF78012AF82A3F001AEC59 /* 1980s-Casio-Clarinet-C5.wav */; };
+		5BDF780C2AF82A3F001AEC59 /* Alesis-Fusion-Ocarina.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF78022AF82A3F001AEC59 /* Alesis-Fusion-Ocarina.wav */; };
+		5BDF780D2AF82A3F001AEC59 /* Soft-Chord-Loop-47---100-BPM-A#min.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF78032AF82A3F001AEC59 /* Soft-Chord-Loop-47---100-BPM-A#min.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +185,50 @@
 		5BDF77982AF7D05D001AEC59 /* MicRecorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicRecorderView.swift; sourceTree = "<group>"; };
 		5BDF779A2AF7DBE9001AEC59 /* MicRecordingsStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicRecordingsStorage.swift; sourceTree = "<group>"; };
 		5BDF779C2AF7EAEB001AEC59 /* AudioChannelDemonstrator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioChannelDemonstrator.swift; sourceTree = "<group>"; };
+		5BDF77B42AF82260001AEC59 /* Titan-Guitar-Melody-Loop-11---160-BPM-D#-Min.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Titan-Guitar-Melody-Loop-11---160-BPM-D#-Min.wav"; sourceTree = "<group>"; };
+		5BDF77B52AF82260001AEC59 /* Titan-Guitar-Chord-Loop-8---140-BPM-F#-Min.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Titan-Guitar-Chord-Loop-8---140-BPM-F#-Min.wav"; sourceTree = "<group>"; };
+		5BDF77B62AF82260001AEC59 /* Moonlight-Guitar-Loop-8---110-BPM-A-Maj.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Moonlight-Guitar-Loop-8---110-BPM-A-Maj.wav"; sourceTree = "<group>"; };
+		5BDF77B72AF82261001AEC59 /* Titan-Guitar-Chord-Loop-4---140-BPM-D#-Min.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Titan-Guitar-Chord-Loop-4---140-BPM-D#-Min.wav"; sourceTree = "<group>"; };
+		5BDF77B82AF82261001AEC59 /* Moonlight-Guitar-Loop-7---110-BPM-G#-Maj.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Moonlight-Guitar-Loop-7---110-BPM-G#-Maj.wav"; sourceTree = "<group>"; };
+		5BDF77B92AF82261001AEC59 /* Moonlight-Guitar-Loop-10---110-BPM-A-Min.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Moonlight-Guitar-Loop-10---110-BPM-A-Min.wav"; sourceTree = "<group>"; };
+		5BDF77BA2AF82261001AEC59 /* GG-Funk-Chord-Loop-7---100-BPM-F-Min.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "GG-Funk-Chord-Loop-7---100-BPM-F-Min.wav"; sourceTree = "<group>"; };
+		5BDF77BB2AF82261001AEC59 /* Moonlight-Guitar-Loop-3---100-BPM-F-Maj.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Moonlight-Guitar-Loop-3---100-BPM-F-Maj.wav"; sourceTree = "<group>"; };
+		5BDF77BC2AF82261001AEC59 /* Titan-Guitar-Chord-Loop-11---160-BPM-D#-Maj.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Titan-Guitar-Chord-Loop-11---160-BPM-D#-Maj.wav"; sourceTree = "<group>"; };
+		5BDF77BD2AF82261001AEC59 /* Titan-Guitar-Melody-Loop-9---160-BPM-D-Maj.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Titan-Guitar-Melody-Loop-9---160-BPM-D-Maj.wav"; sourceTree = "<group>"; };
+		5BDF77C82AF82363001AEC59 /* AudioSamples+Guitar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AudioSamples+Guitar.swift"; sourceTree = "<group>"; };
+		5BDF77CB2AF82658001AEC59 /* Heater-Kick-16.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Heater-Kick-16.wav"; sourceTree = "<group>"; };
+		5BDF77CC2AF82658001AEC59 /* Main-Clap-3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Main-Clap-3.wav"; sourceTree = "<group>"; };
+		5BDF77CD2AF82658001AEC59 /* Heater-Percussion-26.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Heater-Percussion-26.wav"; sourceTree = "<group>"; };
+		5BDF77CE2AF82658001AEC59 /* Ride-25.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Ride-25.wav"; sourceTree = "<group>"; };
+		5BDF77CF2AF82658001AEC59 /* Future-Bass-Hihat-3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Future-Bass-Hihat-3.wav"; sourceTree = "<group>"; };
+		5BDF77D02AF82658001AEC59 /* Heater-Closed-Hat-2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Heater-Closed-Hat-2.wav"; sourceTree = "<group>"; };
+		5BDF77D12AF82658001AEC59 /* Organic-Percussion-Shot-13.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Organic-Percussion-Shot-13.wav"; sourceTree = "<group>"; };
+		5BDF77D22AF82658001AEC59 /* Titan-Buildup-Drums-68---160-BPM.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Titan-Buildup-Drums-68---160-BPM.wav"; sourceTree = "<group>"; };
+		5BDF77D32AF82658001AEC59 /* Future-Bass-Crash-2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Future-Bass-Crash-2.wav"; sourceTree = "<group>"; };
+		5BDF77D42AF82658001AEC59 /* Heater-Full-Drum-Loop-1---160-BPM.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Heater-Full-Drum-Loop-1---160-BPM.wav"; sourceTree = "<group>"; };
+		5BDF77D52AF82658001AEC59 /* Heater-Perc-Loop-25---150-BPM.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Heater-Perc-Loop-25---150-BPM.wav"; sourceTree = "<group>"; };
+		5BDF77D62AF82658001AEC59 /* Heater-Clap-6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Heater-Clap-6.wav"; sourceTree = "<group>"; };
+		5BDF77D72AF82658001AEC59 /* Future-Bass-Buildup-Drums-1---150-BPM.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Future-Bass-Buildup-Drums-1---150-BPM.wav"; sourceTree = "<group>"; };
+		5BDF77D82AF82659001AEC59 /* Tension-Buildup-Drums-7---140-BPM.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Tension-Buildup-Drums-7---140-BPM.wav"; sourceTree = "<group>"; };
+		5BDF77D92AF82659001AEC59 /* Titan-Kick-7---C#.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Titan-Kick-7---C#.wav"; sourceTree = "<group>"; };
+		5BDF77DA2AF82659001AEC59 /* Titan-Buildup-Drums-76---170-BPM.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Titan-Buildup-Drums-76---170-BPM.wav"; sourceTree = "<group>"; };
+		5BDF77DB2AF82659001AEC59 /* Future-Bass-Hihat-Loop-5---160-BPM.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Future-Bass-Hihat-Loop-5---160-BPM.wav"; sourceTree = "<group>"; };
+		5BDF77DC2AF82659001AEC59 /* Titan-Big-Clap-7.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Titan-Big-Clap-7.wav"; sourceTree = "<group>"; };
+		5BDF77DD2AF82659001AEC59 /* Future-Bass-Perc-7.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Future-Bass-Perc-7.wav"; sourceTree = "<group>"; };
+		5BDF77DE2AF82659001AEC59 /* Tension-Buildup-Drums-12---150-BPM.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Tension-Buildup-Drums-12---150-BPM.wav"; sourceTree = "<group>"; };
+		5BDF77DF2AF82659001AEC59 /* Master-Collection-Vol-2-Full-Drum-Loop-24---160-BPM.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Master-Collection-Vol-2-Full-Drum-Loop-24---160-BPM.wav"; sourceTree = "<group>"; };
+		5BDF77F52AF8274F001AEC59 /* AudioSamples+Drum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AudioSamples+Drum.swift"; sourceTree = "<group>"; };
+		5BDF77F72AF8278D001AEC59 /* AudioSamples+Wind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AudioSamples+Wind.swift"; sourceTree = "<group>"; };
+		5BDF77FA2AF82A3E001AEC59 /* Alesis-S4+-Bag-Pipe-C4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Alesis-S4+-Bag-Pipe-C4.wav"; sourceTree = "<group>"; };
+		5BDF77FB2AF82A3E001AEC59 /* 1980s-Casio-Flute-C5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "1980s-Casio-Flute-C5.wav"; sourceTree = "<group>"; };
+		5BDF77FC2AF82A3E001AEC59 /* Nexus6SFX_LowDroneC.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Nexus6SFX_LowDroneC.wav; sourceTree = "<group>"; };
+		5BDF77FD2AF82A3F001AEC59 /* Nexus6SFX_LowDroneStrike.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Nexus6SFX_LowDroneStrike.wav; sourceTree = "<group>"; };
+		5BDF77FE2AF82A3F001AEC59 /* Alesis-Fusion-Whistle-C.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Alesis-Fusion-Whistle-C.wav"; sourceTree = "<group>"; };
+		5BDF77FF2AF82A3F001AEC59 /* Nexus6SFX_SoftHornHit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Nexus6SFX_SoftHornHit.wav; sourceTree = "<group>"; };
+		5BDF78002AF82A3F001AEC59 /* Nexus6SFX_LongDroneStrike.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Nexus6SFX_LongDroneStrike.wav; sourceTree = "<group>"; };
+		5BDF78012AF82A3F001AEC59 /* 1980s-Casio-Clarinet-C5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "1980s-Casio-Clarinet-C5.wav"; sourceTree = "<group>"; };
+		5BDF78022AF82A3F001AEC59 /* Alesis-Fusion-Ocarina.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Alesis-Fusion-Ocarina.wav"; sourceTree = "<group>"; };
+		5BDF78032AF82A3F001AEC59 /* Soft-Chord-Loop-47---100-BPM-A#min.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Soft-Chord-Loop-47---100-BPM-A#min.wav"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +263,7 @@
 		5B47B9F12AF2FF9200E583ED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5BDF779E2AF8220A001AEC59 /* AudioSamples */,
 				5BDF776A2AF638EC001AEC59 /* NumberFormatters.swift */,
 				5BDF778D2AF6D865001AEC59 /* Images.swift */,
 				5BDA363F2AF2F8AA0042267F /* Assets.xcassets */,
@@ -247,6 +336,9 @@
 			isa = PBXGroup;
 			children = (
 				5BDF77432AF55F1B001AEC59 /* AudioSample.swift */,
+				5BDF77C82AF82363001AEC59 /* AudioSamples+Guitar.swift */,
+				5BDF77F52AF8274F001AEC59 /* AudioSamples+Drum.swift */,
+				5BDF77F72AF8278D001AEC59 /* AudioSamples+Wind.swift */,
 				5BDF77472AF55F90001AEC59 /* AudioSegment.swift */,
 				5BDF774B2AF56222001AEC59 /* AudioChannel.swift */,
 				5BDF77452AF55F4E001AEC59 /* MusicalInstrumentKind.swift */,
@@ -305,6 +397,78 @@
 				5BDF77892AF6D593001AEC59 /* MusicalInstrumentKindView.swift */,
 			);
 			path = AudioSamplePicker;
+			sourceTree = "<group>";
+		};
+		5BDF779E2AF8220A001AEC59 /* AudioSamples */ = {
+			isa = PBXGroup;
+			children = (
+				5BDF779F2AF82210001AEC59 /* Guitar */,
+				5BDF77CA2AF8248B001AEC59 /* Drum */,
+				5BDF77F92AF82A21001AEC59 /* Wind */,
+			);
+			path = AudioSamples;
+			sourceTree = "<group>";
+		};
+		5BDF779F2AF82210001AEC59 /* Guitar */ = {
+			isa = PBXGroup;
+			children = (
+				5BDF77BA2AF82261001AEC59 /* GG-Funk-Chord-Loop-7---100-BPM-F-Min.wav */,
+				5BDF77BB2AF82261001AEC59 /* Moonlight-Guitar-Loop-3---100-BPM-F-Maj.wav */,
+				5BDF77B82AF82261001AEC59 /* Moonlight-Guitar-Loop-7---110-BPM-G#-Maj.wav */,
+				5BDF77B62AF82260001AEC59 /* Moonlight-Guitar-Loop-8---110-BPM-A-Maj.wav */,
+				5BDF77B92AF82261001AEC59 /* Moonlight-Guitar-Loop-10---110-BPM-A-Min.wav */,
+				5BDF77B72AF82261001AEC59 /* Titan-Guitar-Chord-Loop-4---140-BPM-D#-Min.wav */,
+				5BDF77B52AF82260001AEC59 /* Titan-Guitar-Chord-Loop-8---140-BPM-F#-Min.wav */,
+				5BDF77BC2AF82261001AEC59 /* Titan-Guitar-Chord-Loop-11---160-BPM-D#-Maj.wav */,
+				5BDF77BD2AF82261001AEC59 /* Titan-Guitar-Melody-Loop-9---160-BPM-D-Maj.wav */,
+				5BDF77B42AF82260001AEC59 /* Titan-Guitar-Melody-Loop-11---160-BPM-D#-Min.wav */,
+			);
+			path = Guitar;
+			sourceTree = "<group>";
+		};
+		5BDF77CA2AF8248B001AEC59 /* Drum */ = {
+			isa = PBXGroup;
+			children = (
+				5BDF77D72AF82658001AEC59 /* Future-Bass-Buildup-Drums-1---150-BPM.wav */,
+				5BDF77D32AF82658001AEC59 /* Future-Bass-Crash-2.wav */,
+				5BDF77CF2AF82658001AEC59 /* Future-Bass-Hihat-3.wav */,
+				5BDF77DB2AF82659001AEC59 /* Future-Bass-Hihat-Loop-5---160-BPM.wav */,
+				5BDF77DD2AF82659001AEC59 /* Future-Bass-Perc-7.wav */,
+				5BDF77D62AF82658001AEC59 /* Heater-Clap-6.wav */,
+				5BDF77D02AF82658001AEC59 /* Heater-Closed-Hat-2.wav */,
+				5BDF77D42AF82658001AEC59 /* Heater-Full-Drum-Loop-1---160-BPM.wav */,
+				5BDF77CB2AF82658001AEC59 /* Heater-Kick-16.wav */,
+				5BDF77D52AF82658001AEC59 /* Heater-Perc-Loop-25---150-BPM.wav */,
+				5BDF77CD2AF82658001AEC59 /* Heater-Percussion-26.wav */,
+				5BDF77CC2AF82658001AEC59 /* Main-Clap-3.wav */,
+				5BDF77DF2AF82659001AEC59 /* Master-Collection-Vol-2-Full-Drum-Loop-24---160-BPM.wav */,
+				5BDF77D12AF82658001AEC59 /* Organic-Percussion-Shot-13.wav */,
+				5BDF77CE2AF82658001AEC59 /* Ride-25.wav */,
+				5BDF77D82AF82659001AEC59 /* Tension-Buildup-Drums-7---140-BPM.wav */,
+				5BDF77DE2AF82659001AEC59 /* Tension-Buildup-Drums-12---150-BPM.wav */,
+				5BDF77DC2AF82659001AEC59 /* Titan-Big-Clap-7.wav */,
+				5BDF77D22AF82658001AEC59 /* Titan-Buildup-Drums-68---160-BPM.wav */,
+				5BDF77DA2AF82659001AEC59 /* Titan-Buildup-Drums-76---170-BPM.wav */,
+				5BDF77D92AF82659001AEC59 /* Titan-Kick-7---C#.wav */,
+			);
+			path = Drum;
+			sourceTree = "<group>";
+		};
+		5BDF77F92AF82A21001AEC59 /* Wind */ = {
+			isa = PBXGroup;
+			children = (
+				5BDF78012AF82A3F001AEC59 /* 1980s-Casio-Clarinet-C5.wav */,
+				5BDF77FB2AF82A3E001AEC59 /* 1980s-Casio-Flute-C5.wav */,
+				5BDF78022AF82A3F001AEC59 /* Alesis-Fusion-Ocarina.wav */,
+				5BDF77FE2AF82A3F001AEC59 /* Alesis-Fusion-Whistle-C.wav */,
+				5BDF77FA2AF82A3E001AEC59 /* Alesis-S4+-Bag-Pipe-C4.wav */,
+				5BDF78002AF82A3F001AEC59 /* Nexus6SFX_LongDroneStrike.wav */,
+				5BDF77FC2AF82A3E001AEC59 /* Nexus6SFX_LowDroneC.wav */,
+				5BDF77FD2AF82A3F001AEC59 /* Nexus6SFX_LowDroneStrike.wav */,
+				5BDF77FF2AF82A3F001AEC59 /* Nexus6SFX_SoftHornHit.wav */,
+				5BDF78032AF82A3F001AEC59 /* Soft-Chord-Loop-47---100-BPM-A#min.wav */,
+			);
+			path = Wind;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -421,11 +585,52 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BDF77EF2AF82659001AEC59 /* Titan-Buildup-Drums-76---170-BPM.wav in Resources */,
+				5BDF77F32AF82659001AEC59 /* Tension-Buildup-Drums-12---150-BPM.wav in Resources */,
+				5BDF77F02AF82659001AEC59 /* Future-Bass-Hihat-Loop-5---160-BPM.wav in Resources */,
+				5BDF77ED2AF82659001AEC59 /* Tension-Buildup-Drums-7---140-BPM.wav in Resources */,
+				5BDF77E12AF82659001AEC59 /* Main-Clap-3.wav in Resources */,
+				5BDF780C2AF82A3F001AEC59 /* Alesis-Fusion-Ocarina.wav in Resources */,
+				5BDF77BF2AF82261001AEC59 /* Titan-Guitar-Chord-Loop-8---140-BPM-F#-Min.wav in Resources */,
 				5B47B9F52AF3011400E583ED /* c-min-bass.wav in Resources */,
+				5BDF77C22AF82261001AEC59 /* Moonlight-Guitar-Loop-7---110-BPM-G#-Maj.wav in Resources */,
+				5BDF77C72AF82261001AEC59 /* Titan-Guitar-Melody-Loop-9---160-BPM-D-Maj.wav in Resources */,
+				5BDF77F12AF82659001AEC59 /* Titan-Big-Clap-7.wav in Resources */,
+				5BDF77E62AF82659001AEC59 /* Organic-Percussion-Shot-13.wav in Resources */,
+				5BDF77C42AF82261001AEC59 /* GG-Funk-Chord-Loop-7---100-BPM-F-Min.wav in Resources */,
 				5BDF77592AF57595001AEC59 /* 808-11-d.wav in Resources */,
+				5BDF78042AF82A3F001AEC59 /* Alesis-S4+-Bag-Pipe-C4.wav in Resources */,
+				5BDF78062AF82A3F001AEC59 /* Nexus6SFX_LowDroneC.wav in Resources */,
 				5BDA36432AF2F8AA0042267F /* LaunchScreen.storyboard in Resources */,
+				5BDF780B2AF82A3F001AEC59 /* 1980s-Casio-Clarinet-C5.wav in Resources */,
+				5BDF77E52AF82659001AEC59 /* Heater-Closed-Hat-2.wav in Resources */,
+				5BDF78082AF82A3F001AEC59 /* Alesis-Fusion-Whistle-C.wav in Resources */,
 				5B47B9F42AF3011200E583ED /* e-min-swelling-pad.wav in Resources */,
+				5BDF780D2AF82A3F001AEC59 /* Soft-Chord-Loop-47---100-BPM-A#min.wav in Resources */,
+				5BDF77C02AF82261001AEC59 /* Moonlight-Guitar-Loop-8---110-BPM-A-Maj.wav in Resources */,
+				5BDF77EB2AF82659001AEC59 /* Heater-Clap-6.wav in Resources */,
+				5BDF77F42AF82659001AEC59 /* Master-Collection-Vol-2-Full-Drum-Loop-24---160-BPM.wav in Resources */,
+				5BDF78072AF82A3F001AEC59 /* Nexus6SFX_LowDroneStrike.wav in Resources */,
+				5BDF77E92AF82659001AEC59 /* Heater-Full-Drum-Loop-1---160-BPM.wav in Resources */,
+				5BDF780A2AF82A3F001AEC59 /* Nexus6SFX_LongDroneStrike.wav in Resources */,
+				5BDF77F22AF82659001AEC59 /* Future-Bass-Perc-7.wav in Resources */,
+				5BDF77C52AF82261001AEC59 /* Moonlight-Guitar-Loop-3---100-BPM-F-Maj.wav in Resources */,
+				5BDF77E42AF82659001AEC59 /* Future-Bass-Hihat-3.wav in Resources */,
+				5BDF77E02AF82659001AEC59 /* Heater-Kick-16.wav in Resources */,
+				5BDF77E22AF82659001AEC59 /* Heater-Percussion-26.wav in Resources */,
+				5BDF77E32AF82659001AEC59 /* Ride-25.wav in Resources */,
+				5BDF77EC2AF82659001AEC59 /* Future-Bass-Buildup-Drums-1---150-BPM.wav in Resources */,
+				5BDF77E82AF82659001AEC59 /* Future-Bass-Crash-2.wav in Resources */,
+				5BDF78092AF82A3F001AEC59 /* Nexus6SFX_SoftHornHit.wav in Resources */,
 				5BDA36402AF2F8AA0042267F /* Assets.xcassets in Resources */,
+				5BDF77BE2AF82261001AEC59 /* Titan-Guitar-Melody-Loop-11---160-BPM-D#-Min.wav in Resources */,
+				5BDF78052AF82A3F001AEC59 /* 1980s-Casio-Flute-C5.wav in Resources */,
+				5BDF77C32AF82261001AEC59 /* Moonlight-Guitar-Loop-10---110-BPM-A-Min.wav in Resources */,
+				5BDF77C62AF82261001AEC59 /* Titan-Guitar-Chord-Loop-11---160-BPM-D#-Maj.wav in Resources */,
+				5BDF77C12AF82261001AEC59 /* Titan-Guitar-Chord-Loop-4---140-BPM-D#-Min.wav in Resources */,
+				5BDF77EE2AF82659001AEC59 /* Titan-Kick-7---C#.wav in Resources */,
+				5BDF77E72AF82659001AEC59 /* Titan-Buildup-Drums-68---160-BPM.wav in Resources */,
+				5BDF77EA2AF82659001AEC59 /* Heater-Perc-Loop-25---150-BPM.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +661,7 @@
 				5BDF77482AF55F90001AEC59 /* AudioSegment.swift in Sources */,
 				5BDF775B2AF57D55001AEC59 /* FileManager+.swift in Sources */,
 				5BDF77972AF7BCEB001AEC59 /* MelodyProgressView.swift in Sources */,
+				5BDF77F82AF8278D001AEC59 /* AudioSamples+Wind.swift in Sources */,
 				5BDF77652AF629F3001AEC59 /* UIView+.swift in Sources */,
 				5BDF779B2AF7DBE9001AEC59 /* MicRecordingsStorage.swift in Sources */,
 				5BDF77802AF6C347001AEC59 /* Button.swift in Sources */,
@@ -488,9 +694,11 @@
 				5BDA36372AF2F8A90042267F /* AppDelegate.swift in Sources */,
 				5BDF774C2AF56222001AEC59 /* AudioChannel.swift in Sources */,
 				5BDA36752AF2FA950042267F /* Labels.swift in Sources */,
+				5BDF77C92AF82363001AEC59 /* AudioSamples+Guitar.swift in Sources */,
 				5BDF77822AF6C6A5001AEC59 /* MelodySharer.swift in Sources */,
 				5BDF77862AF6CB2D001AEC59 /* MicPlayer.swift in Sources */,
 				5BDF77672AF63667001AEC59 /* UIControl+.swift in Sources */,
+				5BDF77F62AF8274F001AEC59 /* AudioSamples+Drum.swift in Sources */,
 				5BDA36772AF2FAA30042267F /* Buttons.swift in Sources */,
 				5BDF77902AF6D9D2001AEC59 /* VerticalAudioSamplesListView.swift in Sources */,
 				5BDF77932AF79EFD001AEC59 /* SoundVisualisationView.swift in Sources */,

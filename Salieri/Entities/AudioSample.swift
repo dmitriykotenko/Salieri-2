@@ -14,6 +14,7 @@ struct AudioSample: Equatable, Hashable, Codable, Buildable {
   var instrumentKind: MusicalInstrumentKind
   var name: String
   var shortName: String
+  var summary: String?
   var fileName: FileName
 
   var duration: Duration
@@ -23,6 +24,7 @@ struct AudioSample: Equatable, Hashable, Codable, Buildable {
   init(instrumentKind: MusicalInstrumentKind,
        name: String,
        shortName: String,
+       summary: String?,
        fileName: FileName) {
     self.instrumentKind = instrumentKind
     self.name = name
@@ -51,6 +53,7 @@ struct AudioSample: Equatable, Hashable, Codable, Buildable {
     instrumentKind: .guitar,
     name: "c-min-bass",
     shortName: "c-min-bass",
+    summary: "c-min-bass",
     fileName: .resource("c-min-bass.wav")
   )
 
@@ -58,6 +61,7 @@ struct AudioSample: Equatable, Hashable, Codable, Buildable {
     instrumentKind: .guitar,
     name: "e-min-swelling-pad",
     shortName: "e-min-swelling-pad",
+    summary: "e-min-swelling-pad",
     fileName: .resource("e-min-swelling-pad.wav")
   )
 
@@ -65,6 +69,7 @@ struct AudioSample: Equatable, Hashable, Codable, Buildable {
     instrumentKind: .drum,
     name: "808-11-d",
     shortName: "808-11-d",
+    summary: "808-11-d",
     fileName: .resource("808-11-d.wav")
   )
 
@@ -72,6 +77,7 @@ struct AudioSample: Equatable, Hashable, Codable, Buildable {
     instrumentKind: .mic,
     name: "mic-1",
     shortName: "mic-1",
+    summary: nil,
     fileName: .resource("808-11-d.wav")
   )
 }

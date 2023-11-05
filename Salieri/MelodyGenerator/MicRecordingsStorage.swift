@@ -17,8 +17,8 @@ class MicRecordingsStorage {
     currentIndex += 1
 
     return .init(
-      name: "Сэмпл \(currentIndex)",
-      shortName: "Микрофон \(currentIndex)",
+      name: "Микрофон \(currentIndex)",
+      shortName: "Сэмпл \(currentIndex)",
       fileName: micRecordingFileName(index: currentIndex)
     )
   }

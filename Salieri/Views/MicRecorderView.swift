@@ -122,6 +122,7 @@ class MicRecorderView: View {
           instrumentKind: .mic,
           name: recordingSpec.name,
           shortName: recordingSpec.shortName,
+          summary: "Recording date: \(Date())",
           fileName: .recorded(
             FileManager.default.fileUrl(fileName: recordingSpec.fileName)!
           )
