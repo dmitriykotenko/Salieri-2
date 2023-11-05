@@ -73,7 +73,8 @@ class AudioChannelView: View {
 
     addSubview(slidersContainer)
     slidersContainer.snp.makeConstraints {
-      $0.bottom.leading.trailing.equalToSuperview()
+      $0.leading.trailing.equalToSuperview()
+      $0.bottom.equalToSuperview().offset(-16)
       $0.top.equalTo(buttonsContainer.snp.bottom)
     }
 
@@ -83,7 +84,8 @@ class AudioChannelView: View {
   private func setupButtonsLayout() {
     buttonsContainer.addSubview(titleLabel)
     titleLabel.snp.makeConstraints {
-      $0.top.bottom.leading.equalToSuperview()
+      $0.top.bottom.equalToSuperview()
+      $0.leading.equalToSuperview().offset(16)
     }
 
     let stack = UIStackView().preparedForAutoLayout()

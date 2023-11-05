@@ -11,6 +11,12 @@ extension UIImage {
   static let guitarIcon = UIImage(named: "guitar-icon.pdf")!
   static let drumIcon = UIImage(named: "drum-icon.pdf")!
   static let windIcon = UIImage(named: "wind-icon.pdf")!
+
+  static let largeMicIcon = UIImage(named: "large-mic-icon.pdf")!
+  static let largePlayIcon = UIImage(named: "large-play-icon.pdf")!
+  static let largeRecordIcon = UIImage(named: "large-record-icon.pdf")!
+  static let largeStopIcon = UIImage(named: "large-stop-icon.pdf")!
+
   static let micIcon = UIImage(named: "mic-icon.pdf")!
   static let playIcon = UIImage(named: "play-icon.pdf")!
   static let recordIcon = UIImage(named: "record-icon.pdf")!

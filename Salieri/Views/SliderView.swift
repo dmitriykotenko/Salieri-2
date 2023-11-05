@@ -13,15 +13,12 @@ class SliderView: View {
   var value = BehaviorSubject<Float?>(value: nil)
 
   private let titleLabel = UILabel.small
-  private let valueLabel = UILabel.small.with(textAlignment: .right)
   private let slider = UISlider().preparedForAutoLayout()
 
   private lazy var tapGesture = UITapGestureRecognizer(
     target: self,
     action: #selector(onTap)
   )
-
-  private let valueFormatter = NumberFormatter.float
 
   private let disposeBag = DisposeBag()
 
@@ -34,7 +31,6 @@ class SliderView: View {
     titleLabel.text = title
     setupSlider(bounds: bounds)
     setupLayout()
-    valueUpdated()
   }
 
   private func setupLayout() {
@@ -46,7 +42,8 @@ class SliderView: View {
 
     titleLabel.snp.makeConstraints {
       $0.width.equalTo(90)
-      $0.centerY.leading.equalToSuperview()
+      $0.centerY.equalToSuperview()
+      $0.leading.equalToSuperview().offset(16)
     }
 
     addSubview(slider)
@@ -55,16 +52,7 @@ class SliderView: View {
     slider.snp.makeConstraints {
       $0.top.bottom.equalToSuperview()
       $0.leading.equalTo(titleLabel.snp.trailing).offset(16)
-    }
-
-    addSubview(valueLabel)
-    valueLabel.setContentHuggingPriority(.required, for: .horizontal)
-    valueLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
-
-    valueLabel.snp.makeConstraints {
-      $0.width.equalTo(44)
-      $0.centerY.trailing.equalToSuperview()
-      $0.leading.equalTo(slider.snp.trailing)
+      $0.trailing.equalToSuperview().offset(-16)
     }
   }
 
@@ -93,17 +81,11 @@ class SliderView: View {
 
   private func userDidUpdateValue() {
     value.onNext(slider.value)
-    valueUpdated()
-  }
-
-  private func valueUpdated() {
-    valueLabel.text = valueFormatter.string(from: slider.value as NSNumber)
   }
 
   func with(value: Float) -> Self {
     self.value.onNext(value)
     slider.value = value
-    valueUpdated()
     return self
   }
 }

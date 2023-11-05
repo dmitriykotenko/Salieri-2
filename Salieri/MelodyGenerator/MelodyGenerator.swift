@@ -102,6 +102,8 @@ class MelodyGenerator {
     channelPlayers.forEach { $0.playerNode?.stop() }
     audioEngine.mainMixerNode.removeTap(onBus: 0)
 
+    micPlayer?.stop()
+
     melodyContainer.prepareToStop()
 
     if shouldShareRecordedMelody {

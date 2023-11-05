@@ -79,7 +79,7 @@ class AddAudioChannelView: View {
     insertSubview(titleLabel, belowSubview: buttonsContainer)
     titleLabel.backgroundColor = .mainBackground
     titleLabel.snp.makeConstraints {
-      $0.top.equalTo(6)
+      $0.top.equalTo(8)
       $0.leading.equalToSuperview().offset(32)
     }
   }

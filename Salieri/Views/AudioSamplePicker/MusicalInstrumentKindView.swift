@@ -19,7 +19,7 @@ class MusicalInstrumentKindView: View {
 
   private(set) lazy var imageView = UIImageView.imageView(
     image: instrumentKind.icon.withTintColor(tintColor),
-    size: .init(width: 80, height: 64)
+    size: .init(width: 72, height: 64)
   )
 
   private(set) lazy var titleLabel = UILabel.small

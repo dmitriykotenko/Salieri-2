@@ -17,7 +17,7 @@ extension UILabel {
   }
 
   static var small: UILabel {
-    label(font: .systemFont(ofSize: 16))
+    label(font: .systemFont(ofSize: 14))
   }
 
   static func label(font: UIFont,

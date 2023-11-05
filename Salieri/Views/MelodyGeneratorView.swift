@@ -18,10 +18,10 @@ class MelodyGeneratorView: View {
 
   let spacer = View()
 
-  let playButton = UIButton.iconic(image: .playIcon, tintColor: .systemTeal)
-  let recordButton = UIButton.iconic(image: .recordIcon, tintColor: .systemTeal)
-  let stopButton = UIButton.iconic(image: .stopIcon, tintColor: .systemTeal)
-  let micButton = UIButton.iconic(image: .micIcon, tintColor: .systemTeal)
+  let playButton = UIButton.iconic(image: .largePlayIcon, tintColor: .systemTeal)
+  let recordButton = UIButton.iconic(image: .largeRecordIcon, tintColor: .systemRed)
+  let stopButton = UIButton.iconic(image: .largeStopIcon, tintColor: .systemTeal)
+  let micButton = UIButton.iconic(image: .largeMicIcon, tintColor: .systemTeal)
 
   private var melodyContainer: MelodyContainer
 
@@ -54,10 +54,13 @@ class MelodyGeneratorView: View {
       .subscribe(onNext: { [weak self] in
         self?.melodyContainer.isMicMuted.toggle()
         self?.micButton.isSelected.toggle()
+        self?.micButtonUpdated()
       })
       .disposed(by: disposeBag)
 
     stopButton.isHidden = true
+
+    micButtonUpdated()
   }
 
   private func setupLayout() {
@@ -84,6 +87,10 @@ class MelodyGeneratorView: View {
     }
   }
 
+  private func micButtonUpdated() {
+    micButton.tintColor = micButton.tintColor.withAlphaComponent(micButton.isSelected ? 1 : 0.5)
+  }
+
   private func play(saveToFile fileName: String? = nil) {
     playButton.isHidden = true
     recordButton.isHidden = true
@@ -102,7 +109,7 @@ class MelodyGeneratorView: View {
         totalDuration: 36000.seconds,
         saveToFile: fileName
       )
-      
+
       onPlayStarted()
     }
   }

@@ -17,9 +17,9 @@ class ViewController: UIViewController {
   let scrollView = UIScrollView().preparedForAutoLayout()
 
   let melodyContainer = MelodyContainer(channels: [
-    .init(segment: .init(sample: .d80811)),
-    .init(segment: .init(sample: .cMinBass)),
-    .init(segment: .init(sample: .eMinSwellingPad))
+//    .init(segment: .init(sample: .d80811)),
+//    .init(segment: .init(sample: .cMinBass)),
+//    .init(segment: .init(sample: .eMinSwellingPad))
   ])
 
   lazy var channelDemonstrator = AudioChannelDemonstrator(parentViewController: self)
@@ -150,6 +150,20 @@ class ViewController: UIViewController {
 
   private func onChannelAdded(_ channel: AudioChannel) {
     channelsView.channelAdded(channel)
+
+    scrollView.setNeedsLayout()
+    scrollView.layoutIfNeeded()
+
+    scrollToBottom(animated: melodyContainer.channels.count >= 2)
+  }
+
+  private func scrollToBottom(animated: Bool) {
+    let bottomOffset = CGPoint(
+      x: 0,
+      y: scrollView.contentSize.height - scrollView.bounds.height + scrollView.contentInset.bottom
+    )
+
+    scrollView.setContentOffset(bottomOffset, animated: animated)
   }
 
   private func onMicInstrumentTapped() {
@@ -157,7 +171,7 @@ class ViewController: UIViewController {
 
     micRecorder.onFinish = { [weak self] audioSample in
       if let audioSample {
-        self?.channelsView.channelAdded(.init(
+        self?.onChannelAdded(.init(
           segment: .unrepeatable(sample: audioSample)
         ))
       }

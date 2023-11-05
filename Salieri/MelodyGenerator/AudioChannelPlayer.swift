@@ -110,6 +110,7 @@ class AudioChannelPlayer {
         offset: offset
       )
 
+      updateVolume()
       playerNode.play()
     }
   }

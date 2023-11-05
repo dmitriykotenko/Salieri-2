@@ -43,6 +43,10 @@ class MicPlayer {
     inputNode.volume = isMuted ? 0 : 1
   }
 
+  func stop() {
+    inputNode.engine?.stop()
+  }
+
   private func setupAudioEngine() {
     try! activateAudioSession()
 
