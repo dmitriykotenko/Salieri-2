@@ -254,9 +254,9 @@
             filePath = "Salieri/Views/AudioChannelView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
-            landmarkName = "with(channel:)"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
+            landmarkName = "silenceLengthSliderValueChanged(newValue:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

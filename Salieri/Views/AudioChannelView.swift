@@ -30,8 +30,8 @@ class AudioChannelView: View {
   .with(image: .smallPlayIcon, forState: .selected)
 
   let muteButton = UIButton.iconic(
-    image: .smallMuteIcon,
-    tintColor: .black.withAlphaComponent(0.25),
+    image: .smallUnmuteIcon,
+    tintColor: .black,
     width: 44
   )
 
@@ -86,23 +86,16 @@ class AudioChannelView: View {
       $0.top.bottom.leading.equalToSuperview()
     }
 
-    buttonsContainer.addSubview(pauseButton)
-    pauseButton.snp.makeConstraints {
-      $0.top.bottom.equalToSuperview()
+    let stack = UIStackView().preparedForAutoLayout()
+    stack.axis = .horizontal
+    stack.addArrangedSubview(pauseButton)
+    stack.addArrangedSubview(muteButton)
+    stack.addArrangedSubview(deleteButton)
+
+    buttonsContainer.addSubview(stack)
+    stack.snp.makeConstraints {
+      $0.top.bottom.trailing.equalToSuperview()
       $0.leading.equalTo(titleLabel.snp.trailing).offset(16)
-    }
-
-    buttonsContainer.addSubview(muteButton)
-    muteButton.snp.makeConstraints {
-      $0.top.bottom.equalToSuperview()
-      $0.leading.equalTo(pauseButton.snp.trailing).offset(16)
-    }
-
-    buttonsContainer.addSubview(deleteButton)
-    deleteButton.snp.makeConstraints {
-      $0.top.bottom.equalToSuperview()
-      $0.leading.equalTo(muteButton.snp.trailing).offset(16)
-      $0.trailing.equalToSuperview()
     }
   }
 
@@ -144,6 +137,7 @@ class AudioChannelView: View {
     titleLabel.text = channel.segment.sample.name
     pauseButton.isSelected = channel.isPaused
     muteButton.isSelected = channel.isMuted
+    updateMuteButton()
   }
 
   private func onTap(of button: UIButton,
@@ -158,9 +152,14 @@ class AudioChannelView: View {
   }
 
   private func muteButtonTapped() {
-    muteButton.tintColor = channel.isMuted ? .black.withAlphaComponent(0.25) : .black
+    muteButton.isSelected = !channel.isMuted
+    updateMuteButton()
 
     emitChannelEvent(.isMuted(channel: channel, isMuted: !channel.isMuted))
+  }
+
+  private func updateMuteButton() {
+    muteButton.tintColor = muteButton.isSelected ? .black.withAlphaComponent(0.25) : .black
   }
 
   private func silenceLengthSliderValueChanged(newValue: Float) {
