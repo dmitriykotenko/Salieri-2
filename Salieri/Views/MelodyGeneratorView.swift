@@ -10,6 +10,8 @@ import AVFoundation
 
 class MelodyGeneratorView: View {
 
+  var onFramesGenerated: (FramesPack) -> Void = { _ in }
+
   let bottomButtonsPanel = View()
 
   let playButton = UIButton.standard.with(title: "Воспроизвести реквием")
@@ -92,6 +94,8 @@ class MelodyGeneratorView: View {
       melodyContainer: melodyContainer,
       parentViewController: containingViewController
     )
+
+    self.melodyGenerator?.onFramesGenerated = onFramesGenerated
 
     Task { @MainActor in
       await melodyGenerator?.play(

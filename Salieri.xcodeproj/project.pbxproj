@@ -31,7 +31,7 @@
 		5BDF77502AF56347001AEC59 /* MelodyGeneratorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF774F2AF56347001AEC59 /* MelodyGeneratorState.swift */; };
 		5BDF77522AF566BD001AEC59 /* SalieriError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF77512AF566BD001AEC59 /* SalieriError.swift */; };
 		5BDF77552AF5676C001AEC59 /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF77542AF5676C001AEC59 /* URL+.swift */; };
-		5BDF77572AF56D1F001AEC59 /* Sequence+asyncMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF77562AF56D1F001AEC59 /* Sequence+asyncMap.swift */; };
+		5BDF77572AF56D1F001AEC59 /* Sequence+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF77562AF56D1F001AEC59 /* Sequence+.swift */; };
 		5BDF77592AF57595001AEC59 /* 808-11-d.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF77582AF57595001AEC59 /* 808-11-d.wav */; };
 		5BDF775B2AF57D55001AEC59 /* FileManager+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF775A2AF57D55001AEC59 /* FileManager+.swift */; };
 		5BDF775D2AF61D50001AEC59 /* AudioChannelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF775C2AF61D50001AEC59 /* AudioChannelView.swift */; };
@@ -58,6 +58,9 @@
 		5BDF778C2AF6D5B0001AEC59 /* ImageViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF778B2AF6D5B0001AEC59 /* ImageViews.swift */; };
 		5BDF778E2AF6D865001AEC59 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF778D2AF6D865001AEC59 /* Images.swift */; };
 		5BDF77902AF6D9D2001AEC59 /* VerticalAudioSamplesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF778F2AF6D9D2001AEC59 /* VerticalAudioSamplesListView.swift */; };
+		5BDF77932AF79EFD001AEC59 /* SoundVisualisationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF77922AF79EFD001AEC59 /* SoundVisualisationView.swift */; };
+		5BDF77952AF7AB04001AEC59 /* PcmBufferParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF77942AF7AB04001AEC59 /* PcmBufferParser.swift */; };
+		5BDF77972AF7BCEB001AEC59 /* MelodyProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF77962AF7BCEB001AEC59 /* MelodyProgressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,7 +105,7 @@
 		5BDF774F2AF56347001AEC59 /* MelodyGeneratorState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MelodyGeneratorState.swift; sourceTree = "<group>"; };
 		5BDF77512AF566BD001AEC59 /* SalieriError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalieriError.swift; sourceTree = "<group>"; };
 		5BDF77542AF5676C001AEC59 /* URL+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
-		5BDF77562AF56D1F001AEC59 /* Sequence+asyncMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+asyncMap.swift"; sourceTree = "<group>"; };
+		5BDF77562AF56D1F001AEC59 /* Sequence+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+.swift"; sourceTree = "<group>"; };
 		5BDF77582AF57595001AEC59 /* 808-11-d.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "808-11-d.wav"; sourceTree = "<group>"; };
 		5BDF775A2AF57D55001AEC59 /* FileManager+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+.swift"; sourceTree = "<group>"; };
 		5BDF775C2AF61D50001AEC59 /* AudioChannelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioChannelView.swift; sourceTree = "<group>"; };
@@ -129,6 +132,9 @@
 		5BDF778B2AF6D5B0001AEC59 /* ImageViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViews.swift; sourceTree = "<group>"; };
 		5BDF778D2AF6D865001AEC59 /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		5BDF778F2AF6D9D2001AEC59 /* VerticalAudioSamplesListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalAudioSamplesListView.swift; sourceTree = "<group>"; };
+		5BDF77922AF79EFD001AEC59 /* SoundVisualisationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundVisualisationView.swift; sourceTree = "<group>"; };
+		5BDF77942AF7AB04001AEC59 /* PcmBufferParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PcmBufferParser.swift; sourceTree = "<group>"; };
+		5BDF77962AF7BCEB001AEC59 /* MelodyProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MelodyProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,7 +209,7 @@
 				5BDF77542AF5676C001AEC59 /* URL+.swift */,
 				5BDF776F2AF6584B001AEC59 /* Comparable+.swift */,
 				5BDF775A2AF57D55001AEC59 /* FileManager+.swift */,
-				5BDF77562AF56D1F001AEC59 /* Sequence+asyncMap.swift */,
+				5BDF77562AF56D1F001AEC59 /* Sequence+.swift */,
 				5BDF77512AF566BD001AEC59 /* SalieriError.swift */,
 				5BDF77812AF6C6A5001AEC59 /* MelodySharer.swift */,
 				5BDA363A2AF2F8A90042267F /* ViewController.swift */,
@@ -253,6 +259,7 @@
 				5BDF776D2AF64B36001AEC59 /* MelodyEvent.swift */,
 				5BDF77752AF69766001AEC59 /* MelodyContainer.swift */,
 				5BDF774D2AF562A7001AEC59 /* MelodyGenerator.swift */,
+				5BDF77942AF7AB04001AEC59 /* PcmBufferParser.swift */,
 				5BDF774F2AF56347001AEC59 /* MelodyGeneratorState.swift */,
 			);
 			path = MelodyGenerator;
@@ -271,6 +278,8 @@
 				5BDA36742AF2FA950042267F /* Labels.swift */,
 				5BDF77792AF6BD81001AEC59 /* Colors.swift */,
 				5BDF777D2AF6C19D001AEC59 /* MelodyGeneratorView.swift */,
+				5BDF77962AF7BCEB001AEC59 /* MelodyProgressView.swift */,
+				5BDF77922AF79EFD001AEC59 /* SoundVisualisationView.swift */,
 				5BDF77732AF66FD8001AEC59 /* AudioChannelsView.swift */,
 				5BDF775C2AF61D50001AEC59 /* AudioChannelView.swift */,
 				5BDF77772AF6B7DC001AEC59 /* AddAudioChannelView.swift */,
@@ -437,18 +446,20 @@
 				5BDF77462AF55F4E001AEC59 /* MusicalInstrumentKind.swift in Sources */,
 				5BDF77482AF55F90001AEC59 /* AudioSegment.swift in Sources */,
 				5BDF775B2AF57D55001AEC59 /* FileManager+.swift in Sources */,
+				5BDF77972AF7BCEB001AEC59 /* MelodyProgressView.swift in Sources */,
 				5BDF77652AF629F3001AEC59 /* UIView+.swift in Sources */,
 				5BDF77802AF6C347001AEC59 /* Button.swift in Sources */,
 				5BDF77502AF56347001AEC59 /* MelodyGeneratorState.swift in Sources */,
 				5BDF775F2AF6207B001AEC59 /* Buildable.swift in Sources */,
 				5BDF77762AF69766001AEC59 /* MelodyContainer.swift in Sources */,
-				5BDF77572AF56D1F001AEC59 /* Sequence+asyncMap.swift in Sources */,
+				5BDF77572AF56D1F001AEC59 /* Sequence+.swift in Sources */,
 				5BDF778E2AF6D865001AEC59 /* Images.swift in Sources */,
 				5BDF776E2AF64B36001AEC59 /* MelodyEvent.swift in Sources */,
 				5BDF77742AF66FD8001AEC59 /* AudioChannelsView.swift in Sources */,
 				5BDF77522AF566BD001AEC59 /* SalieriError.swift in Sources */,
 				5BDF778A2AF6D593001AEC59 /* MusicalInstrumentKindView.swift in Sources */,
 				5BDF775D2AF61D50001AEC59 /* AudioChannelView.swift in Sources */,
+				5BDF77952AF7AB04001AEC59 /* PcmBufferParser.swift in Sources */,
 				5BDF776B2AF638EC001AEC59 /* NumberFormatters.swift in Sources */,
 				5BDF774E2AF562A7001AEC59 /* MelodyGenerator.swift in Sources */,
 				5BDF77782AF6B7DC001AEC59 /* AddAudioChannelView.swift in Sources */,
@@ -470,6 +481,7 @@
 				5BDF77672AF63667001AEC59 /* UIControl+.swift in Sources */,
 				5BDA36772AF2FAA30042267F /* Buttons.swift in Sources */,
 				5BDF77902AF6D9D2001AEC59 /* VerticalAudioSamplesListView.swift in Sources */,
+				5BDF77932AF79EFD001AEC59 /* SoundVisualisationView.swift in Sources */,
 				5BDF774A2AF56052001AEC59 /* Duration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,4 +11,8 @@ extension UIColor {
   static var mainBackground: UIColor {
     .black
   }
+
+  static var melodyVisualisationStroke: UIColor {
+    .systemGreen
+  }
 }

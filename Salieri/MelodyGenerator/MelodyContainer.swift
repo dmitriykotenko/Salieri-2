@@ -8,7 +8,8 @@ import RxSwift
 class MelodyContainer {
 
   var channels: [AudioChannel]
-  var isPlaying: Bool = false
+  var isPlaying: Bool = false { didSet { stateUpdated.onNext(()) } }
+  var isRecoring: Bool { isPlaying }
 
   var isMicMuted: Bool = true {
     didSet { micEvents.onNext(isMicMuted) }
@@ -16,6 +17,8 @@ class MelodyContainer {
 
   var channelEvents = PublishSubject<AudioChannelEvent>()
   var micEvents = PublishSubject<Bool>()
+
+  var stateUpdated = PublishSubject<Void>()
 
   init(channels: [AudioChannel] = []) {
     self.channels = channels

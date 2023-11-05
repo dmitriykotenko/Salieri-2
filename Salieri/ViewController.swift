@@ -10,10 +10,8 @@ import AVFoundation
 
 class ViewController: UIViewController {
 
-  let titleLabel = UILabel.standard
-    .with(textColor: .white)
-    .with(text: "Сальери")
-    .with(textAlignment: .center)
+  let melodyProgressView = MelodyProgressView()
+  let soundVisualisationView = SoundVisualisationView()
 
   let scrollView = UIScrollView().preparedForAutoLayout()
 
@@ -45,17 +43,42 @@ class ViewController: UIViewController {
         self?.channelsView.channelAdded($0)
       })
       .disposed(by: disposeBag)
+
+    generatorView.onFramesGenerated = { [weak self] in
+      self?.soundVisualisationView.add(
+        rawFrames: $0.rawFrames,
+        rawFrameRate: $0.frameRate,
+        setCurrentDuration: $0.currentDuration
+      )
+
+      self?.melodyProgressView.currentDuration = $0.currentDuration
+    }
+
+    melodyContainer.stateUpdated
+      .observe(on: MainScheduler.instance)
+      .subscribe(onNext: { [melodyProgressView, melodyContainer] in
+        melodyProgressView.isPlaying = melodyContainer.isPlaying
+        melodyProgressView.isRecording = melodyContainer.isRecoring
+      })
+      .disposed(by: disposeBag)
   }
 
   private func setupLayout() {
     view.translatesAutoresizingMaskIntoConstraints = false
     view.backgroundColor = .mainBackground
 
-    view.addSubview(titleLabel)
-    titleLabel.snp.makeConstraints {
-      $0.top.equalToSuperview().offset(50)
-      $0.centerX.equalToSuperview()
-      $0.leading.equalToSuperview().offset(16)
+    view.addSubview(melodyProgressView)
+    melodyProgressView.snp.makeConstraints {
+      $0.leading.trailing.equalToSuperview()
+      $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+    }
+
+    soundVisualisationView.backgroundColor = .mainBackground
+    view.addSubview(soundVisualisationView)
+    soundVisualisationView.snp.makeConstraints {
+      $0.leading.trailing.equalToSuperview()
+      $0.height.equalTo(66)
+      $0.top.equalTo(melodyProgressView.snp.bottom)
     }
 
     addMelodyGeneratorView()
@@ -92,7 +115,7 @@ class ViewController: UIViewController {
     scrollView.snp.makeConstraints {
       $0.leading.trailing.equalToSuperview()
       $0.bottom.equalTo(addChannelView.snp.top).inset(-16)
-      $0.top.equalTo(titleLabel.snp.bottom).inset(-16)
+      $0.top.equalTo(soundVisualisationView.snp.bottom).inset(-16)
     }
   }
 
@@ -100,6 +123,10 @@ class ViewController: UIViewController {
   private func onGlobalTouch(location: CGPoint) {
     print("global-touch")
     addChannelView.onGlobalTouch(at: location)
+  }
+
+  override var preferredStatusBarStyle: UIStatusBarStyle {
+    .lightContent
   }
 }
 

@@ -12,6 +12,10 @@ extension UILabel {
     label(font: .systemFont(ofSize: 24))
   }
 
+  static var standardWithMonospacedDigits: UILabel {
+    label(font: .monospacedDigitSystemFont(ofSize: 24, weight: .regular))
+  }
+
   static var small: UILabel {
     label(font: .systemFont(ofSize: 16))
   }

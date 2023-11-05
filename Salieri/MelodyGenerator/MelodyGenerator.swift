@@ -16,6 +16,10 @@ class MelodyGenerator {
   var channelPlayers: [AudioChannelPlayer] = []
   var micPlayer: MicPlayer?
 
+  var pcmBufferParser: PcmBufferParser?
+
+  var onFramesGenerated: (FramesPack) -> Void = { _ in }
+
   private weak var parentViewController: UIViewController?
   private var sharer: MelodySharer?
   private var melodyFileName: String?
@@ -118,12 +122,24 @@ class MelodyGenerator {
       settings: audioFormat.settings
     )
 
+    pcmBufferParser = .init()
+
+    var currentDuration = Duration.zero
     audioEngine.mainMixerNode.installTap(
       onBus: bus,
-      bufferSize: 4096,
+      bufferSize: 1024,
       format: audioFormat,
-      block: { buffer, time in
+      block: { [weak self] buffer, time in
+        currentDuration = currentDuration + 100.milliseconds
+        print("now-------\(Date())")
         try! audioFile.write(from: buffer)
+        if let frames = self?.pcmBufferParser?.processChunkedAudioData(buffer: buffer) {
+          self?.onFramesGenerated(.init(
+            rawFrames: frames,
+            frameRate: 100,
+            currentDuration: currentDuration
+          ))
+        }
       }
     )
 
@@ -187,4 +203,11 @@ class MelodyGenerator {
   private func onAudioSessionRouteChange() {
     setupAudioEngine()
   }
+}
+
+
+struct FramesPack {
+  var rawFrames: [Float]
+  var frameRate: Int
+  var currentDuration: Duration
 }
