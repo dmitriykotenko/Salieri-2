@@ -126,8 +126,8 @@ class AudioChannelView: View {
     silenceLengthSlider.value
       .compactMap { $0 }
       .distinctUntilChanged()
-      .subscribe(onNext: { [weak self] newSilenceLength in
-        self?.silenceLengthSliderValueChanged(newValue: newSilenceLength)
+      .subscribe(onNext: { [weak self] newSliderValue in
+        self?.silenceLengthSliderValueChanged(newValue: newSliderValue)
       })
       .disposed(by: disposeBag)
 
@@ -166,7 +166,7 @@ class AudioChannelView: View {
   private func silenceLengthSliderValueChanged(newValue: Float) {
     emitChannelEvent(.silenceLengthChanged(
       channel: channel,
-      newSilenceLength: CGFloat(newValue)
+      newSilenceLength: toSilenceLength(newValue)
     ))
   }
 
@@ -193,6 +193,21 @@ class AudioChannelView: View {
   private func updateSliders() {
     silenceLengthSlider.isHidden = !channel.segment.sample.canBeRepeated
     _ = loudnessSlider.with(value: Float(channel.segment.loudness) / 100)
-    _ = silenceLengthSlider.with(value: Float(channel.segment.silenceLength))
+    _ = silenceLengthSlider.with(value: fromSilenceLength(channel.segment.silenceLength))
+  }
+
+  private func toSilenceLength(_ sliderValue: Float) -> CGFloat {
+    guard sliderValue >= 0.05 else { return 10_000_000_000 }
+
+    return CGFloat((1 - sliderValue) * 5)
+  }
+
+  private func fromSilenceLength(_ silenceLength: CGFloat) -> Float {
+    // x = (1 - y) * 5
+    // -5y + 5 = x
+    // y = (x - 5) / -5
+    // y = (5 - x) / 5
+    guard silenceLength <= 5 else { return 0 }
+    return Float((5 - silenceLength) / 5).clamped(inside: 0...1)
   }
 }
