@@ -14,6 +14,13 @@ struct AudioSegment: Equatable, Hashable, Codable {
   /// 1x означает паузу, равную длине сэмпла.
   var silenceLength: CGFloat = 0
 
+  static func unrepeatable(sample: AudioSample) -> AudioSegment {
+    .init(
+      sample: sample,
+      silenceLength: 10_000_000_000
+    )
+  }
+
   func durationUntilSampleEnd(from duration: Duration) -> Duration {
     let relativeDuration = duration % period
     return max(sample.duration - relativeDuration, .zero)

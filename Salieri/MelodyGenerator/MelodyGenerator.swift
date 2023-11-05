@@ -25,6 +25,7 @@ class MelodyGenerator {
   private var sharer: MelodySharer?
   private var melodyFileName: String?
 
+  private var channelEventsDisposeBag = DisposeBag()
   private let disposeBag = DisposeBag()
 
   init(melodyContainer: MelodyContainer,
@@ -40,10 +41,6 @@ class MelodyGenerator {
       baseTime: .zero
     )
 
-    melodyContainer.channelEvents
-      .subscribe(onNext: { [weak self] in self?.process(channelEvent: $0) })
-      .disposed(by: disposeBag)
-
     melodyContainer.micEvents
       .subscribe(onNext: { [weak self] in self?.updateMicState(isMuted: $0) })
       .disposed(by: disposeBag)
@@ -52,11 +49,19 @@ class MelodyGenerator {
     listenForAudioRouteChanges()
   }
 
+  private func listenChannelEvents() {
+    melodyContainer.channelEvents
+      .subscribe(onNext: { [weak self] in self?.process(channelEvent: $0) })
+      .disposed(by: channelEventsDisposeBag)
+  }
+
+  private func stopListeningChannelEvents() {
+      channelEventsDisposeBag = DisposeBag()
+  }
 
   func play(totalDuration: Duration,
             saveToFile fileName: String? = nil) async {
-    melodyContainer.isPlaying = true
-    melodyContainer.isRecoring = (fileName != nil)
+    melodyContainer.prepareToPlay(isRecording: fileName != nil)
 
     self.micPlayer = MicPlayer(
       audioSession: audioSession,
@@ -84,14 +89,20 @@ class MelodyGenerator {
 
     setupFrameBufferListening(fileName: fileName)
 
-    channelPlayers.forEach { $0.play(totalDuration: totalDuration) }
+    channelPlayers
+      .filter { !$0.channel.isMuted }
+      .forEach { $0.play(totalDuration: totalDuration) }
+
+    listenChannelEvents()
   }
 
   func stop() {
+    stopListeningChannelEvents()
+    
     channelPlayers.forEach { $0.playerNode?.stop() }
     audioEngine.mainMixerNode.removeTap(onBus: 0)
-    melodyContainer.isPlaying = false
-    melodyContainer.isRecoring = false
+
+    melodyContainer.prepareToStop()
 
     if shouldShareRecordedMelody {
       share()

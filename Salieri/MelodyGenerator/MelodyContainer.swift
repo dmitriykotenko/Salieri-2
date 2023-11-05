@@ -24,13 +24,48 @@ class MelodyContainer {
     self.channels = channels
   }
 
-  func process(event: MelodyEvent) {
+  func prepareToDemonstrate(channel: AudioChannel) {
+    channels.filter { $0.id != channel.id }.forEach {
+      process(
+        event: .channelChange(
+          .isPaused(
+            channel: $0,
+            isPaused: true
+          )
+        ),
+        shouldPropagate: false
+      )
+    }
+  }
+
+  func prepareToPlay(isRecording: Bool) {
+    isPlaying = true
+    self.isRecoring = isRecording
+
+    channels.forEach {
+      process(event: .channelChange(.isPaused(channel: $0, isPaused: $0.isMuted)))
+    }
+  }
+
+  func prepareToStop() {
+    channels.forEach {
+      process(event: .channelChange(.isPaused(channel: $0, isPaused: true)))
+    }
+    
+    isPlaying = false
+    isRecoring = false
+  }
+
+  func process(event: MelodyEvent,
+               shouldPropagate: Bool = true) {
     switch event {
     case .channelChange(let channelEvent):
       channels = channels.map {
         $0.id == channelEvent.initialChannel.id ? channelEvent.apply(to: $0) : $0
       }
-      channelEvents.onNext(channelEvent)
+      if shouldPropagate {
+        channelEvents.onNext(channelEvent)
+      }
     case .channelAdded(let audioChannel):
       guard !isPlaying else { return }
       channels += [audioChannel]

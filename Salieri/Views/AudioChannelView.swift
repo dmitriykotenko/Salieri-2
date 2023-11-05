@@ -22,18 +22,24 @@ class AudioChannelView: View {
 
   let titleLabel = UILabel.small
 
-  let pauseButton = UIButton.small()
-    .with(title: "Пауза")
-    .with(selectedTitleColor: .red)
+  let pauseButton = UIButton.iconic(
+    image: .smallPauseIcon,
+    tintColor: .black,
+    width: 44
+  )
+  .with(image: .smallPlayIcon, forState: .selected)
 
-  let muteButton = UIButton.small()
-    .with(title: "Заглушить")
-    .with(selectedTitleColor: .red)
+  let muteButton = UIButton.iconic(
+    image: .smallMuteIcon,
+    tintColor: .black.withAlphaComponent(0.25),
+    width: 44
+  )
 
-  let deleteButton = UIButton.small()
-    .with(backgroundColor: .systemRed)
-    .with(title: "Удалить")
-    .with(selectedTitleColor: .red)
+  let deleteButton = UIButton.iconic(
+    image: .smallDeleteIcon,
+    tintColor: .black,
+    width: 44
+  )
 
   let loudnessSlider = SliderView(title: "Громкость", bounds: 0...10)
   let silenceLengthSlider = SliderView(title: "Скорость", bounds: 0...1)
@@ -119,6 +125,7 @@ class AudioChannelView: View {
 
     silenceLengthSlider.value
       .compactMap { $0 }
+      .distinctUntilChanged()
       .subscribe(onNext: { [weak self] newSilenceLength in
         self?.silenceLengthSliderValueChanged(newValue: newSilenceLength)
       })
@@ -126,6 +133,7 @@ class AudioChannelView: View {
 
     loudnessSlider.value
       .compactMap { $0 }
+      .distinctUntilChanged()
       .subscribe(onNext: { [weak self] newLoudness in
         self?.loudnessSliderValueChanged(newValue: newLoudness)
       })
@@ -150,6 +158,8 @@ class AudioChannelView: View {
   }
 
   private func muteButtonTapped() {
+    muteButton.tintColor = channel.isMuted ? .black.withAlphaComponent(0.25) : .black
+
     emitChannelEvent(.isMuted(channel: channel, isMuted: !channel.isMuted))
   }
 

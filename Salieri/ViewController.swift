@@ -17,6 +17,7 @@ class ViewController: UIViewController {
   let scrollView = UIScrollView().preparedForAutoLayout()
 
   let melodyContainer = MelodyContainer(channels: [
+    .init(segment: .init(sample: .d80811)),
     .init(segment: .init(sample: .cMinBass)),
     .init(segment: .init(sample: .eMinSwellingPad))
   ])
@@ -56,11 +57,13 @@ class ViewController: UIViewController {
     generatorView.onPlayStarted = { [weak self] in
       self?.channelDemonstrator.stop()
       self?.soundVisualisationView.isHidden = false
+      self?.channelsView.update()
     }
 
     generatorView.onPlayFinished = { [weak self] in
       self?.soundVisualisationView.isHidden = true
       self?.soundVisualisationView.reset()
+      self?.channelsView.update()
     }
 
     generatorView.onFramesGenerated = { [weak self] in
@@ -154,10 +157,7 @@ class ViewController: UIViewController {
     micRecorder.onFinish = { [weak self] audioSample in
       if let audioSample {
         self?.channelsView.channelAdded(.init(
-          segment: .init(
-            sample: audioSample,
-            silenceLength: 10_000_000_000
-          )
+          segment: .unrepeatable(sample: audioSample)
         ))
       }
 
@@ -167,33 +167,51 @@ class ViewController: UIViewController {
     micRecorder.record()
   }
 
+  private var demonstratedChannelId: UUID?
+
   private func setupChannelDemonstration() {
     melodyContainer.channelEvents
       .filter { [weak self] _ in self?.melodyContainer.isPlaying == false }
+      .observe(on: MainScheduler.asyncInstance)
       .subscribe(onNext: { [weak self] in
         switch $0 {
         case .isPaused(let channel, let isPaused):
+          let shouldPlayNewChannel = !isPaused && channel.id != self?.demonstratedChannelId
+          let shouldStopCurrenChannel = isPaused && (channel.id == self?.demonstratedChannelId)
+
+          guard shouldPlayNewChannel || shouldStopCurrenChannel else { break }
+
           if isPaused {
             self?.stopChannelDemonstration()
           } else {
             self?.demonstrateChannel(channel)
           }
         default:
-          break
+          if self?.demonstratedChannelId == $0.initialChannel.id {
+            self?.channelDemonstrator.onChannelEvent($0)
+          }
         }
       })
       .disposed(by: disposeBag)
   }
 
   private func demonstrateChannel(_ channel: AudioChannel) {
+    demonstratedChannelId = channel.id
+
     channelDemonstrator.stop()
+    melodyContainer.prepareToDemonstrate(channel: channel)
+
     Task {
       await channelDemonstrator.play(channel: channel, totalDuration: 600.seconds)
+      channelsView.update()
     }
   }
 
   private func stopChannelDemonstration() {
     channelDemonstrator.stop()
+    melodyContainer.prepareToStop()
+    channelsView.update()
+    demonstratedChannelId = nil
   }
 
   @objc

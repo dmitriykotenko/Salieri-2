@@ -75,6 +75,12 @@ class AudioChannelsView: View {
     channelsListUpdated()
   }
 
+  func update() {
+    zip(melodyContainer.channels, channelViews).forEach { channel, view in
+      _ = view.with(channel: channel)
+    }
+  }
+
   private func deleteChannel(_ channel: AudioChannel) {
     melodyContainer.process(event: .channelDeleted(id: channel.id))
     channelsListUpdated()

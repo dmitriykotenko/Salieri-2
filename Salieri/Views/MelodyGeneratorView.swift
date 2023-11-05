@@ -102,9 +102,9 @@ class MelodyGeneratorView: View {
         totalDuration: 36000.seconds,
         saveToFile: fileName
       )
+      
+      onPlayStarted()
     }
-
-    onPlayStarted()
   }
 
   private func record() {

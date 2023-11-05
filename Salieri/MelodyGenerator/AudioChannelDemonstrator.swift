@@ -33,16 +33,12 @@ class AudioChannelDemonstrator {
   }
 
   func onChannelEvent(_ channelEvent: AudioChannelEvent) {
+    guard channelEvent.initialChannel.id == channelPlayer?.channel.id
+    else { return }
+
     switch channelEvent {
-    case .isPaused(let channel, let isPaused):
-      if isPaused {
-        stop()
-      } else {
-        stop()
-        Task {
-          await play(channel: channel, totalDuration: 600.seconds)
-        }
-      }
+    case .sampleChanged, .loudnessChanged, .silenceLengthChanged:
+      channelPlayer?.process(audioChannelEvent: channelEvent)
     default:
       break
     }
@@ -56,7 +52,7 @@ class AudioChannelDemonstrator {
     self.channelPlayer = AudioChannelPlayer(
       audioSession: audioSession,
       audioEngine: audioEngine,
-      channel: channel
+      channel: channel.with(\.isMuted, false)
     )
 
     await channelPlayer?.prepareToPlay(totalDuration: totalDuration)

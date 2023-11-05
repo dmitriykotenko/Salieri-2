@@ -42,6 +42,8 @@ class AudioChannelPlayer {
     // Небольшая задержка, чтобы все каналы начали играть строго одновременно.
     let startTime = AVAudioTime(hostTime: hostTimeFuture)
 
+    updateVolume()
+    
     playerNode?.play(at: startTime)
   }
 
@@ -113,7 +115,7 @@ class AudioChannelPlayer {
   }
 
   private func updateVolume() {
-    playerNode?.volume = channel.isMuted ? 0.3 : Float(channel.segment.loudness) / 100
+    playerNode?.volume = channel.isMuted ? 0 : Float(channel.segment.loudness) / 100
   }
 }
 

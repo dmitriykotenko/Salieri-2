@@ -17,7 +17,7 @@ struct AudioChannel: Equatable, Hashable, Codable, Buildable {
   init(id: UUID = UUID(),
        segment: AudioSegment,
        isMuted: Bool = false,
-       isPaused: Bool = false,
+       isPaused: Bool = true,
        baseTime: Duration = .zero,
        offset: Duration = .zero) {
     self.id = id
